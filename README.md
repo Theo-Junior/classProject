@@ -1,6 +1,11 @@
 # classProject / For deploy test Server  
 **클래스 프로젝트 테스트용 서버입니다.**  
 
+# 참고 문헌 #
+- https://tutledeveoper.wordpress.com/2018/07/22/spring-boot-%EA%B8%B0%EB%B3%B8-%EA%B5%AC%EC%A1%B0-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/
+
+<hr>
+
 
 # 사용 방법 #  
 1. 먼저 우측 위의 녹색 Clone or Download를 눌러 자신의 PC로 (Clone or ZIP)내려받는다.  
