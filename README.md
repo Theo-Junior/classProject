@@ -19,6 +19,7 @@
 3. src/main/java/com.classproject.testServer/MainController.java로 이동  
 
    [public class MainController] 클래스 내에 메소드를 추가해줍니다. (제일 중요합니다!)  
+   
   **_EX) 만약에 내가 작성해서 추가하고자 하는 JSP 파일의 이름이 [Apple.jsp] 라고 하고, /Apple로 URI를 맵핑하고 싶다면.._**  
    >
     @RequestMapping(value="/[Apple]")    --> 맵핑되고자 하는 URI   
