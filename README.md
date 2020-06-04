@@ -1,5 +1,9 @@
-# classProject / For deploy test Server  
+<h1> 커밋 전에 브랜치 확인 필수!! </h1>
+<hr> 
+<h1> classProject / For deploy test Server  </h1>
 **클래스 프로젝트 테스트용 서버입니다.**  
+
+
 
 # #참고 문헌# #
 - Spring Boot의 구조 및 이해 ::  
