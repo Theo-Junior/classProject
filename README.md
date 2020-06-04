@@ -1,7 +1,8 @@
 # classProject / For deploy test Server  
 **클래스 프로젝트 테스트용 서버입니다.**  
 
-# 참고 문헌 #
+# #참고 문헌# #
+- Spring Boot의 구조 및 이해 ::  
 - https://tutledeveoper.wordpress.com/2018/07/22/spring-boot-%EA%B8%B0%EB%B3%B8-%EA%B5%AC%EC%A1%B0-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/
 
 <hr>
