@@ -20,7 +20,7 @@
    [public class MainController] 클래스 내에 메소드를 추가해줍니다. (제일 중요합니다!)  
    
  <pre><code>
-      **_EX) 만약에 내가 작성해서 추가하고자 하는 JSP 파일의 이름이 [Apple.jsp] 라고 하고, /Apple로 URI를 맵핑하고 싶다면.._**   
+**_EX) 만약에 내가 작성해서 추가하고자 하는 JSP 파일의 이름이 [Apple.jsp] 라고 하고, /Apple로 URI를 맵핑하고 싶다면.._**   
       
     @RequestMapping(value="/[Apple]")    --> 맵핑되고자 하는 URI   
         public String [Apple]() {      --> 맵핑 간 호출되는 메소드 이름  
@@ -30,13 +30,13 @@
 4. 코드 내에서 연결하고자하는 JSP파일간 연결해준다.  
   - form action으로 이동 / input type="button" ..(중략).. onclick=["location.href='backend'"]/> 활용! 
   <pre><code>
-  **_EX.1) index.jsp -> Apple.jsp로 이동하는데 Form을 활용해서 페이지 이동 ::  
+**_EX.1) index.jsp -> Apple.jsp로 이동하는데 Form을 활용해서 페이지 이동 ::  
                      ==> '<form action = Apple.jsp..' 중략  
-  **_EX.2) index.jps -> Apple.jsp로 이동하는데 Button을 활용해서 페이지 이동 ::  
+                        
+**_EX.2) index.jps -> Apple.jsp로 이동하는데 Button을 활용해서 페이지 이동 ::  
                      ==> Input type=Button.. 중략 .. onclick="location.href='Apple'"  
                         </code></pre>
                     
-
 <hr>
 
 # 프론트 파트 #  
