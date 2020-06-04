@@ -25,11 +25,12 @@
    > }  
     
   **_EX) 만약에 내가 작성해서 추가하고자 하는 JSP 파일의 이름이 [Apple.jsp] 라고 하고, /Apple로 URI를 맵핑하고 싶다면.._**  
-   >@RequestMapping(value="/Apple")    --> 맵핑되고자 하는 URI   
-   >    public String Apple() {      --> 맵핑 간 호출되는 메소드 이름  
-   >       return "Apple";          --> 내가 작성한 JSP파일의 이름  
-   > }  
-  
+   >
+    @RequestMapping(value="/Apple")    --> 맵핑되고자 하는 URI   
+        public String Apple() {      --> 맵핑 간 호출되는 메소드 이름  
+        return "Apple";          --> 내가 작성한 JSP파일의 이름  
+    }  
+   >
 4. 코드 내에서 연결하고자하는 JSP파일간 연결해준다.  
   - form action으로 이동 / input type="button" ..(중략).. onclick=["location.href='backend'"]/>로  
   **_EX.1) index.jsp -> Apple.jsp로 이동하는데 Form을 활용해서 페이지 이동 ::  
