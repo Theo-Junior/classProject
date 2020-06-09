@@ -43,17 +43,19 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
     </script>
 </head>
 <body>
-    <h1>여기까지 오는데 5일이 걸렸다.. </h1>
+    <h1>여기까지 오는데 9일이 걸렸다.. </h1><br>
+    <h3>서버 : Azure Wep</h3>
+    <h3>DB : Azure SQL </h3>
     <input type="button" value="다른 페이지로 넘어갑니다." onclick="location.href='backend'"/>
     <br><br><hr>
 
-    <h2>접속 시간은 .. :: ${serverTime}</h2><br>
-    <h2>현재 시간은 .. :: <body onload="printClock()">
+    <h2>접속 시간은(내장 함수 테스트용) .. :: ${serverTime}</h2><br>
+    <h2>현재 시간은(JavaScript 테스트용) .. :: <body onload="printClock()">
         <div style="border:1px solid #dedede; width:600px; height:250px; line-height:250px; color:#666;font-size:100px; text-align:center;" id="clock">
     </div></h2>
 
     <br><br>
-    <h2>이 테스트 버튼은 Ms-sql Server의 DB에서 데이터를 긁어옵니다. </h2>
+    <h2>현재 우리 Azure Web DB 전체 조회(Web DB Connection 테스트용) </h2>
     <input type="button" value="DB TEST" onclick="location.href='test'"/>
 </body>
 </html>

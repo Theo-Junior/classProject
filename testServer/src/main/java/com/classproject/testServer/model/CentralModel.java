@@ -1,6 +1,6 @@
 package com.classproject.testServer.model;
 
-public class testModel {
+public class CentralModel {
     int id;
     String name;
     String info;
