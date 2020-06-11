@@ -28,12 +28,7 @@ public class CentralController {
         // 위의 메소드 내 인스턴스로 최초 페이지 로딩할 떄 변수(데이터)를 넘길 수 있어요.
         logger.info("Access Index Page");
 
-        Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		String formattedDate = dateFormat.format(date);
-		model.addAttribute("serverTime", formattedDate);
-
-        return "index";
+        return "main";
     }
 
     @RequestMapping(value="/backend")
