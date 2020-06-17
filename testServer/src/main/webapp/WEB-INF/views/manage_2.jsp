@@ -36,11 +36,11 @@
 					<li class="m1"><a href="hak_1">소개합니다</a>
 						<div class="submenu">
 							<ul>
-								<li><a href="hak_1">클래스소개</a></li>
-								<li><a href="hak_2">교수님소개</a></li>
-								<li><a href="hak_3">센터소개</a></li>
-								<li><a href="hak_4">기수 연혁</a></li>
-								<li><a href="hak_5">프로젝트 소개</a></li>
+								<li><a href="sogae_1">클래스소개</a></li>
+								<li><a href="sogae_2">교수님소개</a></li>
+								<li><a href="sogae_3">센터소개</a></li>
+								<li><a href="sogae_4">기수 연혁</a></li>
+								<li><a href="sogae_5">프로젝트 소개</a></li>
 							</ul>
 						</div>
 					</li>
