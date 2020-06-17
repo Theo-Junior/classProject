@@ -34,7 +34,7 @@
 			<!-- gnb//S-->
 			<div id="gnb">
 				<ul>
-					<li class="m1"><a href="hak_1">소개합니다</a>
+					<li class="m1"><a href="sogae_1">소개합니다</a>
 						<div class="submenu">
 							<ul>
 								<li><a href="sogae_1">클래스소개</a></li>
