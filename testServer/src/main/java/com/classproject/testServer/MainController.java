@@ -16,32 +16,32 @@ public class MainController {
     public String backend() {
         return "backend";
     }
-     //소개 페이지 
-    @RequestMapping(value="/hak_1") 
-    public String hak_1() {
-        logger.info("Access hak_1 Page");
-        return "hak_1";
-    }
-    @RequestMapping(value="/hak_2") 
-    public String hak_2() {
-        logger.info("Access hak_2 Page");
-        return "hak_2";
-    }
-    @RequestMapping(value="/hak_3") 
-    public String hak_3() {
-        logger.info("Access hak_3 Page");
-        return "hak_3";
-    }
-    @RequestMapping(value="/hak_4") 
-    public String hak_4() {
-        logger.info("Access hak_4 Page");
-        return "hak_4";
-    }
-    @RequestMapping(value="/hak_5") 
-    public String hak_5() {
-        logger.info("Access hak_5 Page");
-        return "hak_5";
-    }
+    //소개 페이지 
+     @RequestMapping(value="/sogae_1") 
+     public String sogae_1() {
+         logger.info("Access sogae_1 Page");
+         return "sogae_1";
+     }
+     @RequestMapping(value="/sogae_2") 
+     public String sogae_2() {
+         logger.info("Access sogae_2 Page");
+         return "sogae_2";
+     }
+     @RequestMapping(value="/sogae_3") 
+     public String sogae_3() {
+         logger.info("Access sogae_3 Page");
+         return "sogae_3";
+     }
+     @RequestMapping(value="/sogae_4") 
+     public String sogae_4() {
+         logger.info("Access sogae_4 Page");
+         return "sogae_4";
+     }
+     @RequestMapping(value="/sogae_5") 
+     public String sogae_5() {
+         logger.info("Access sogae_5 Page");
+         return "sogae_5";
+     }
     //학습페이지
      @RequestMapping(value="/haksoup_1") 
     public String haksoup_1() {
