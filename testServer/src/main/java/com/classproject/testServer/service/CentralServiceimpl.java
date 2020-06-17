@@ -25,13 +25,6 @@ public class CentralServiceimpl implements CentralService {
     @Override
     public List<CentralModel> selectUserList() throws Exception{
         List<CentralModel> list =  maindao.selectUserList();
-        // try {
-        //     list =  maindao.selectUserList();
-            
-        // } catch (Exception e) {
-        //     //TODO: handle exception
-        //     logger.error("select User List is Error", e);
-        // }
         return list;
     }
     // 유저 아이디로 조회
