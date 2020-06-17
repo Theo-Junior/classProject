@@ -33,7 +33,7 @@ public class CentralController {
 		String formattedDate = dateFormat.format(date);
 		model.addAttribute("serverTime", formattedDate);
 
-        return "index";
+        return "main";
     }
 
     @RequestMapping(value="/backend")
