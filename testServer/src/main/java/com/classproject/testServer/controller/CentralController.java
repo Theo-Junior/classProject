@@ -1,12 +1,12 @@
 package com.classproject.testServer.controller;
 
-import java.text.DateFormat;
+import java.text.DateFormat; 
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import com.classproject.testServer.dao.CentralDAO;
-import com.classproject.testServer.service.CentralService;
+import com.classproject.testServer.dao.CentralDAO; // DAO 임포트
+import com.classproject.testServer.service.CentralService; // Service 임포트
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,18 +16,24 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
  
-@Controller
+
+
+@Controller // Beans에게 지금 이 클래스는 Controller라고 Anotation(@)으로 알려줌
 public class CentralController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Autowired
+    @Autowired // Beans의 서비스와 연결해서 사용하겠다고 Anotation 선언
     CentralService mainservice;
 
     @RequestMapping(value="/")
     public String index(Locale locale, Model model) {
         // 위의 메소드 내 인스턴스로 최초 페이지 로딩할 떄 변수(데이터)를 넘길 수 있어요.
-        logger.info("Access Index Page");
-
+	// Locale은 지역 객체, Model은 로딩하고자 하는 JSP객체(그냥 Model model을 선언해서 사용하면 된다.)
+	    
+        logger.info("Access Index Page"); 
+	// 현재 실행중인 터미널(콘솔)에 현재 상태를 띄운다. 즉 System.out.print와 같다고 보면 된다.
+	// logger를 사용하려면 import org.slf4j.Logger; import org.slf4j.LoggerFactory; 가 있어야 한다.
+	    
         Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		String formattedDate = dateFormat.format(date);
