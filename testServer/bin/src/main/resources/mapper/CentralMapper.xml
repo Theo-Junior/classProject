@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.classproject.testServer.dao.CentralDAO">
+
+    <select id="selectUserById" parameterType="int" resultType="com.classproject.testServer.model.CentralModel">
+        select * from [dbo].[TestDB] where id=#{id}
+    </select>
+
+    <select id="selectUserList" resultType="com.classproject.testServer.model.CentralModel">
+        select * from [dbo].[TestDB] order by id
+    </select>
+    
+    <insert id="insertUser">
+        insert into [dbo].[member] values (#{member_code}, #{member_id}, #{member_pw}, #{member_nick}, #{member_tel}, #{member_email}, #{member_isadmin})
+    </insert>
+
+    <update id="updateUser" parameterType="com.classproject.testServer.model.CentralModel">
+        update [dbo].[TestDB] set name=#{name},info=#{info} where id=#{id}
+    </update>
+
+    <delete id="deleteUser" parameterType="int">
+        delete from [dbo].[TestDB] where id =#{id}
+    </delete>
+    
+</mapper>

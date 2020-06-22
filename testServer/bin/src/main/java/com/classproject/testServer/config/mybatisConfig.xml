@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+<configuration>
+  <properties>
+        <property name="tblTestDB" value="tblTestDB" />
+        <property name="id" value="${id}"/>
+        <property name="name" value="${name}"/>
+        <property name="info" value="${info}"/> 
+  </properties>
+
+
+  <mappers>
+    <mapper resource="classpath:*/mapper/CentralMapper.xml"/>
+  </mappers>
+
+
+</configuration>
