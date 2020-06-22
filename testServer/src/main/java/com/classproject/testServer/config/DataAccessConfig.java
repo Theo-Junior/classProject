@@ -35,9 +35,15 @@ public class DataAccessConfig {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
             sessionFactory.setDataSource(dataSource);
         try {
+            // 여기서 sqlSession에 대해서 정의를 해준다.
+            // applicationContext.getResources를 통해 sql이 작성되어 있는 mapper.xml을 스캔한다.
+            // 잠깐 설명 : classpath는 자바 프로젝트 경로를 말하는데 src/main/resource 또는 src/main/package 이다. 때에 따라 맞추어 작용한다.
+            // classpath*:mapper/*Mapper.xml ==> src/main/resource/mapper/*Mapper.xml 과 같다.
+            // *는 와일드 카드로 앞의 글자가 어떤 것이 와도 뒤에 Mapper.xml붙은 파일은 다 스캔한다는 이야기다.
+            // 그러면 우리는 src/main/resource/mapper/CentralMemberMapper.xml로 가보자.
             sessionFactory.setMapperLocations(
-            applicationContext.getResources("classpath*:mapper/CentralMapper.xml"));
-            logger.info("classpath*:mapper/CentralMapper.xml 접근");
+            applicationContext.getResources("classpath*:mapper/*Mapper.xml"));
+            logger.info("classpath*:mapper/*Mapper.xml 접근");
         } catch (Exception e) {
             logger.error("classpath*:mapper/CentralMapper.xml 에러 발생", e);
         }

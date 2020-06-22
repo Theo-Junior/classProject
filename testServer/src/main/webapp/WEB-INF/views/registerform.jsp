@@ -38,7 +38,7 @@
 		
 		<!-- 입력한 값을 전송하기 위해 form 태그를 사용한다 -->
 		<!-- 값(파라미터) 전송은 POST 방식, 전송할 페이지는 JoinPro.jsp -->
-		<form method="post" action="../pro/JoinPro.jsp" name="userInfo" onsubmit="return checkValue()">
+		<form method="post" action="join" name="userInfo" onsubmit="return checkValue()">
 			<table>
 			<!--<tr>
 					<td id="title">코드번호</td>
@@ -50,7 +50,7 @@
 					<td id="title">아이디</td>
 					<td>
 						<input type="text" name="id" maxlength="50">
-						<input type="button" value="중복확인" >	
+						<input type="button" value="중복확인" onclick="">	
 					</td>
 				</tr>
 						
@@ -91,8 +91,8 @@
 				<tr>
 					<td id="title">이메일</td>
 					<td>
-						<input type="text" name="mail1" maxlength="50">@
-						<select name="mail2">
+						<input type="text" name="email" maxlength="50">@
+						<select name="email">
 							<option>naver.com</option>
 							<option>daum.net</option>
 							<option>gmail.com</option>				

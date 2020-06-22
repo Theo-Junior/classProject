@@ -1,6 +1,8 @@
 package com.classproject.testServer.dao;
 
 import java.util.List;
+
+import com.classproject.testServer.model.CentralMember;
 import com.classproject.testServer.model.CentralModel;
 
 public interface CentralDAO {

@@ -1,11 +1,15 @@
 package com.classproject.testServer.controller;
 
-import java.text.DateFormat; 
+import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.classproject.testServer.dao.CentralDAO; // DAO 임포트
+import com.classproject.testServer.model.CentralMember;
+import com.classproject.testServer.service.CentralMemberService;
 import com.classproject.testServer.service.CentralService; // Service 임포트
 
 import org.slf4j.Logger;
@@ -23,11 +27,13 @@ public class CentralController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired // Beans의 서비스와 연결해서 사용하겠다고 Anotation 선언
-    CentralService mainservice;
+    CentralService centralservice;
+    @Autowired
+    CentralMemberService centralmemberservice; // 여기서 선언해줬다.
 
     @RequestMapping(value="/")
     public String index(Locale locale, Model model) {
-        // 위의 메소드 내 인스턴스로 최초 페이지 로딩할 떄 변수(데이터)를 넘길 수 있어요.
+    // 위의 메소드 내 인스턴스로 최초 페이지 로딩할 떄 변수(데이터)를 넘길 수 있어요.
 	// Locale은 지역 객체, Model은 로딩하고자 하는 JSP객체(그냥 Model model을 선언해서 사용하면 된다.)
 	    
         logger.info("Access Index Page"); 
@@ -55,10 +61,11 @@ public class CentralController {
         return "backend";
     }
 
+    //값을 넘겨줄때 이방식을 사용한다.
     @RequestMapping(value="/test")
     public String test(Model model) throws Exception {
         logger.info("Access test Page");
-        model.addAttribute("list", mainservice.selectUserList());
+        model.addAttribute("list", centralservice.selectUserList());
 
         return "test";
     }
@@ -156,5 +163,55 @@ public class CentralController {
     public String manage_4() {
         logger.info("Access manage_4 Page");
         return "manage_4";
+    }
+
+    @RequestMapping(value="/loginform") 
+    public String login() {
+        logger.info("Access login Page");
+        return "loginform";
+    }
+
+
+    // 회원가입 페이지(Registerform.jsp에서 가입을 누르면 join.jsp로 넘어갑니다. 그때 join.jsp를 받아서 실행하는 메소드입니다.)
+    @RequestMapping(value="/join") 
+    public String join(HttpServletRequest request) throws Exception {
+
+        // 객체를 선언해준다. Member = DTO이다.
+        CentralMember centralmember = new CentralMember(); // 여기에 선언했다.
+
+        // 현재 RegisterForm에서 code와 isadmin을 받지 않고 있으므로 임의로 1 설정
+        //centralmember.setmember_code(Integer.parseInt(request.getParameter("code")));
+
+        // centralmember 객체에 값을 할당해준다.
+        centralmember.setmember_code(2); //<-- 여기를 수정해준다.
+        centralmember.setmember_id(request.getParameter("id")); 
+        centralmember.setmember_pw(request.getParameter("password"));
+        centralmember.setmember_nick(request.getParameter("nick"));
+        centralmember.setmember_tel(request.getParameter("tel"));
+
+        //왜 메일이 안넘어오지.. 메일이 안넘어 오니 수정해주셔야 해요
+        //centralmember.setmember_email(request.getParameter("email"));
+        centralmember.setmember_email("KKK@KKK.com");
+        centralmember.setmember_isadmin(true);
+
+        // centralmemberservice 얘는 위의 32번째 줄에서 선언해줬다. 객체이름이 centralmemberservice이다.
+        // 객체 내의 insertUser 메소드를 호출하고 파라미터는 centralmember로 한다.
+        // centralmember로 얘는 180번째 줄에 선언 되어 있다. 
+        //여기까지 이해가 되었으면 centralmemberservice.java로 가보자.
+        centralmemberservice.insertUser(centralmember);
+
+        // 위의 과정이 완료되면 터미널에 메세지를 출력해준다.
+        logger.info("Success Join");
+        logger.info("return to main Page");
+
+        // Mapper.xml까지 처리하고 나면 리턴으로 돌아온다. 리턴으로 돌아와서 우리가 띄우고자 하는 페이지를 띄워준다.
+        // redirect:는 문법이고 /main페이지로 리다이렉팅(돌아간다)한다는 뜻이다. 여기까지가 끝이다.
+        return "redirect:/main";// 회원가입이 완료되면 메인페이지를 띄워준다.
+    }
+
+    @RequestMapping(value="/registerform") 
+    public String register() {
+        logger.info("Access register Page");
+        return "registerform";
     }
 }
