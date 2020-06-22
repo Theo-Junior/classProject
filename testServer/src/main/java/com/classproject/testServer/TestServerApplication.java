@@ -18,9 +18,7 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan({"com.classproject.testServer"})
 @EnableAutoConfiguration
 @SpringBootApplication
-//sql 코드를 분리하지 않고 자바코드와 함께 쓸 예정
-//(" ") : sql mapper의 위치 지정
-//@MapperScan("com.example.spring03_boot.model") //model패키지의 DAO를 스캔할 예정
+
 public class TestServerApplication {
  
     public static void main(String[] args) {

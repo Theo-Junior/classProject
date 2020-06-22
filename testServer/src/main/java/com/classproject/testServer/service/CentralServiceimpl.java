@@ -35,8 +35,8 @@ public class CentralServiceimpl implements CentralService {
 
     // 유저 추가
     @Override
-    public void insertUser(CentralModel testmodel) throws Exception{
-        maindao.insertUser(testmodel);
+    public void insertUser(CentralModel centralmodel) throws Exception{
+        maindao.insertUser(centralmodel);
     }
 
     // 회원 삭제
