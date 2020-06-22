@@ -22,4 +22,26 @@ public class CentralMemberDAOimpl implements CentralMemberDAO{
 		// 이 과정은 앞서 Service, DAO에서 호출했던 insertUser를 찾아가기 위함이다.
 		// 이제 DataAccessConfig.java로 가보자.
 	}
+
+	@Override
+	public List<CentralMember> selectUserList() throws Exception {
+		return sqlSession.selectList("com.classproject.testServer.dao.CentralMemberDAO.selectUserList");
+	}
+
+	@Override
+	public CentralMember selectUserById(int bid) throws Exception {
+		return sqlSession.selectOne("com.classproject.testServer.dao.CentralMemberDAO.selectUserById");
+	}
+
+	@Override
+	public void updateUser(CentralMember centralmember) throws Exception {
+		sqlSession.update("com.classproject.testServer.dao.CentralMemberDAO.updateUser", centralmember);
+		
+	}
+
+	@Override
+	public void deleteUser(int bid) throws Exception {
+		sqlSession.delete("com.classproject.testServer.dao.CentralMemberDAO.deleteUser", bid);
+		
+	}
 }

@@ -35,9 +35,10 @@ public class CentralMember {
         member_isadmin = isadmin;
     }
 
-    public void setmember_code(int code){
-        member_code = code;
-    }
+    // member_code는 sql에서 자동으로 부여하게 설정해두었기 때문에 setter를 쓰지 않는다.
+    // public void setmember_code(int code){
+    //     member_code = code;
+    // }
     
     // Getter
     public String getmember_id(){
