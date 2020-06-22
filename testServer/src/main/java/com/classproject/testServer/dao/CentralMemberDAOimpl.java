@@ -20,6 +20,6 @@ public class CentralMemberDAOimpl implements CentralMemberDAO{
 		sqlSession.insert("com.classproject.testServer.dao.CentralMemberDAO.insertUser", centralmember);
 		// 여기에 sqlSession을 선언해서 insert메소드를 호출하고 파라미터로 centralmember를 받고있다. 
 		// 이 과정은 앞서 Service, DAO에서 호출했던 insertUser를 찾아가기 위함이다.
-		// 이제 DataAccessConfig.java로 가보자.asdasd
+		// 이제 DataAccessConfig.java로 가보자.
 	}
 }
