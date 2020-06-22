@@ -1,7 +1,7 @@
 package com.classproject.testServer.service;
 
 import java.util.List;
-import com.classproject.testServer.model.CentralModel;
+import com.classproject.testServer.model.*;
 
 public interface CentralService {
 	public List<CentralModel> selectUserList() throws Exception;
