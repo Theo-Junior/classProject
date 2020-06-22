@@ -6,9 +6,11 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.classproject.testServer.dao.CentralDAO; // DAO 임포트
 import com.classproject.testServer.model.CentralMember;
+import com.classproject.testServer.model.CentralLogin;
 import com.classproject.testServer.service.CentralMemberService;
 import com.classproject.testServer.service.CentralService; // Service 임포트
 
@@ -30,6 +32,7 @@ public class CentralController {
     CentralService centralservice;
     @Autowired
     CentralMemberService centralmemberservice; // 여기서 선언해줬다.
+    
 
     @RequestMapping(value="/")
     public String index(Locale locale, Model model) {
@@ -213,5 +216,23 @@ public class CentralController {
     public String register() {
         logger.info("Access register Page");
         return "registerform";
+    }
+    @RequestMapping(value="/login")
+    public String login(HttpServletRequest request ) throws Exception {
+        //아이디와 비밀번호 가져오기
+        String id= request.getParameter("id");
+        String password= request.getParameter("password");
+        //세션 생성
+        HttpSession session=request.getSession();
+        session.setAttribute("ID", id);
+        session.setAttribute("PASSWORD", password);
+        //로그인 정보 저장
+        CentralLogin centrallogin =new CentralLogin();
+        centrallogin.setlogin_id(request.getParameter("id")); 
+        centrallogin.setlogin_password(request.getParameter("password"));
+        // 세션 동작 확인
+        logger.info(id+" "+password);
+        logger.info("return to main Page");
+        return "redirect:/main";
     }
 }
