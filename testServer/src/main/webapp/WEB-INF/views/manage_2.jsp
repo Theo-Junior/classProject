@@ -25,8 +25,8 @@
 				<h1 class="logo"><a href="index.php"><img src="images/common/logo.png" alt="빅데이터반" /></a></h1>
 				<div class="top_menu">
 					<ul>
-						<li><a href="#">LOGIN</a></li>
-						<li><a href="#">JOIN</a></li>
+						<li><a href="login">LOGIN</a></li>
+						<li><a href="join">JOIN</a></li>
 											</ul>
 				</div>
 			</div>
