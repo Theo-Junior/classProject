@@ -10,11 +10,11 @@
 <mapper namespace="com.classproject.testServer.dao.CentralMemberDAO">
     
     <select id="selectUserById" parameterType="int" resultType="com.classproject.testServer.model.CentralMember">
-        select * from [dbo].[TestDB] where member_id=#{member_id}
+        select * from [dbo].[member] where member_id=#{member_id}
     </select>
 
     <select id="selectUserList" resultType="com.classproject.testServer.model.CentralMember">
-        select * from [dbo].[member] order by member_id
+        select * from [dbo].[member] order by member_code
     </select>
     
     <!-- 
@@ -25,32 +25,32 @@
         insert into [dbo].[member](member_id, member_pw, member_name, member_nick, member_tel, member_email) values (#{member_id}, #{member_pw}, #{member_name}, #{member_nick}, #{member_tel}, #{member_email})
     </insert>
     
-    <update id="updateUser" resultType="com.classproject.testServer.model.CentralMember">
+    <update id="updateUser" parameterType="com.classproject.testServer.model.CentralMember">
         update [dbo].[member] set member_pw=#{member_pw}, member_name=#{member_name}, member_nick=#{member_nick}, member_tel=#{member_tel}, member_email=#{member_email} where member_id=#{member_id}
     </update>
     
-    <update id="updatePw" resultType="com.classproject.testServer.model.CentralMember">
+    <update id="updatePw" parameterType="com.classproject.testServer.model.CentralMember">
         update [dbo].[member] set member_pw=#{member_pw} where member_id=#{member_id}
     </update>
 
-    <update id="updateName" resultType="com.classproject.testServer.model.CentralMember">
+    <update id="updateName" parameterType="com.classproject.testServer.model.CentralMember">
         update [dbo].[member] set member_name=#{member_name} where member_id=#{member_id}
     </update>
 
-    <update id="updateNick" resultType="com.classproject.testServer.model.CentralMember">
+    <update id="updateNick" parameterType="com.classproject.testServer.model.CentralMember">
         update [dbo].[member] set member_nick=#{member_nick} where member_id=#{member_id}
     </update>
 
-    <update id="updateTel" resultType="com.classproject.testServer.model.CentralMember">
+    <update id="updateTel" parameterType="com.classproject.testServer.model.CentralMember">
         update [dbo].[member] set member_tel=#{member_tel} where member_id=#{member_id}
     </update>
 
-    <update id="updateEmail" resultType="com.classproject.testServer.model.CentralMember">
+    <update id="updateEmail" parameterType="com.classproject.testServer.model.CentralMember">
         update [dbo].[member] set member_email=#{member_email} where member_id=#{member_id}
     </update>
 
     <delete id="deleteUser" parameterType="int">
-        delete from [dbo].[TestDB] where member_id =#{member_id}
+        delete from [dbo].[member] where member_id =#{member_id}
     </delete>
 
 </mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 여기까지 이해했는지 모르겠다 ㅠㅠ -->
+<!-- 
+    mapper namespace 이것은 우리가 최초에 호출했던 insertWrite메소드를 담고있는 곳을 가르켜주어야 한다.
+    즉 mapper에 작성된 sql구문들은 CentralboardDAO의 메소드와 연결된다는 의미이다.
+-->
+<mapper namespace="com.classproject.testServer.dao.CentralBoardDAO">
+    
+    <select id="selectWriteByCode" parameterType="int" resultType="com.classproject.testServer.model.CentralBoard">
+        select * from [dbo].[board] where write_code=#{write_code}
+    </select>
+
+    <select id="selectWriteList" resultType="com.classproject.testServer.model.CentralBoard">
+        select * from [dbo].[board]
+    </select>
+    
+    <!-- 
+        여기에서 보면 insertWrite 메소드를 정의해준다. 아래 SQL 구문으로 MS SQL-Server에 접근해서 데이터를 처리한다.
+        이과정이 완료되면 다시 컨트롤러로 돌아간다. Controller로 돌아가보자.
+    -->
+    <insert id="insertWrite">
+        insert into [dbo].[board](board_code, write_title, write_content, write_date, member_code) values (#{board_code}, #{write_title}, #{write_content}, #{write_date}, #{member_code})
+    </insert>
+    
+    <update id="updateWrite" parameterType="com.classproject.testServer.model.CentralBoard">
+        update [dbo].[board] set write_title=#{write_title}, write_content=#{write_content} where write_code=#{write_code}
+    </update>  
+
+    <delete id="deleteWrite" parameterType="int">
+        delete from [dbo].[board] where board_id =#{board_id}
+    </delete>
+
+</mapper>
