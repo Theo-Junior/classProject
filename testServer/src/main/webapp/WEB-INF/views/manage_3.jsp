@@ -25,9 +25,8 @@
 				<h1 class="logo"><a href="index.php"><img src="images/common/logo.png" alt="경희대학교 생체의공학과"></a></h1>
 				<div class="top_menu">
 					<ul>
-						<li><a href="../eng/index.html">ENGLISH</a></li>
-												<li><a href="index.php?hCode=LOGIN">LOGIN</a></li>
-						<li><a href="index.php?hCode=MEMBER_01">JOIN</a></li>
+						<li><a href="login">LOGIN</a></li>
+						<li><a href="join">JOIN</a></li>
 					</ul>
 				</div>
 			</div>
