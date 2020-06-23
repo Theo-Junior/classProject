@@ -6,7 +6,7 @@ table {width:100%; border-spacing:0; border-collapse:collapse; font-size:13px; f
 
 /* header */
 #header {width:100%; position:relative; height:138px; background:url('../img/header_bg.gif') 0 0 repeat-x; z-index:999;}
-#header_content {position:relative; width:1002px; margin:0 auto; height:90px;}
+#header_content {position:relative; width:1000px; margin:0 auto; height:90px;}
 #header_content .logo {position:absolute; top:20px; left:0; z-index:10000;}
 .top_menu { height:90px; overflow:hidden;}
 .top_menu ul {*zoom:1; float:right; padding:42px 10px 0 0;}
@@ -34,7 +34,7 @@ table {width:100%; border-spacing:0; border-collapse:collapse; font-size:13px; f
 .submenu_bg {display:none; position:relative; margin:0 auto; width:1000px; height:180px; background:url('../img/submenu_bg.png') 0 0 repeat-x; z-index:-999;}
 
 /* main*/
-#main_container {position:relative; width:1002px; margin:0 auto; height:356px; overflow:hidden;}
+#main_container {position:relative; width:1000px; margin:0 auto; height:240px; overflow:hidden;}
 #mainvisual {position:relative; width:100%; overflow:hidden; height:356px;}
 #mainvisual .slideshow {position:absolute; width:1002px; height:356px; top:0; left:50%; margin-left:-500px;}
 

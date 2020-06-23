@@ -92,7 +92,7 @@
 		</div>
                 
 		<div id="subvisual">
-	<img src="img/subvisual.jpg" alt="" />
+	<img src="" alt="" />
 </div>
 		<div id="container_wrap">
 			<!-- container //S-->
@@ -105,14 +105,14 @@
 	</div>
 	<ul class="left_lst">
 		<!--style='color:#7d0101; font-weight:600; background:url(/images/menu/menu_on.gif) 0 0 no-repeat;'-->
-		<li><a href="haksoup_1" style='color:#281555; font-weight:600; background:url(img/menu_on.gif) 0 0 no-repeat;'>데싸 결과물</a></li>
-		<li><a href="haksoup_2">주제 문의</a></li>
+		<li><a href="haksoup_1">데싸 결과물</a></li>
+		<li><a href="haksoup_2" style='color:#281555; font-weight:600; background:url(img/menu_on.gif) 0 0 no-repeat;'>주제 문의</a></li>
 	</ul>
 </div><!-- content //S-->
 <div id="content">
-	<div class="path">Home &nbsp;&gt;&nbsp; 잼이 나는 데이터 분석 &nbsp;&gt;&nbsp; 데싸 결과물</div>
+	<div class="path">Home &nbsp;&gt;&nbsp; 잼이 나는 데이터 분석 &nbsp;&gt;&nbsp; 주제 문의</div>
 	<div class="sub_title">
-		<h2>데싸 결과물</h2>
+		<h2>주제 문의</h2>
 	</div>
                 
     
@@ -120,7 +120,7 @@
 	<div class="con_area">
 				<table width="100%" cellpadding=0 cellspacing=0 >
 				<td valign=top colspan=2>
-				<div class="title">분석 1<br><div class="txt">분석 1 입니다. 분석 1 입니다.<br>
+				<div class="title">분석 2<br><div class="txt">분석 2 입니다. 분석 2 입니다.<br>
                     
                 <p>&nbsp;</p>
                     
