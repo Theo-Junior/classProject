@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.classproject.testServer.dao.CentralCommentDAO">
+	<select id="selectCommentByCode" parameterType="int" resultType="com.classproject.testServer.model.CentralComment">
+        select * from [dbo].[Comment] where comment_code=#{comment_code}
+    </select>
+
+    <select id="selectCommentList" resultType="com.classproject.testServer.model.CentralComment">
+        select * from [dbo].[Comment] where write_code=#{write_code}
+    </select>
+    <insert id="insertComment">
+        insert into [dbo].[Comment](comment_code, write_code, member_code, comment_date, comment_write) values (#{comment_code}, #{write_code}, #{member_code}, #{comment_date}, #{comment_write})
+    </insert>
+    
+    <update id="updateComment" parameterType="com.classproject.testServer.model.CentralComment">
+        update [dbo].[Comment] set comment_date=#{comment_date}, comment_write=#{comment_write} where comment_code=#{comment_code}
+    </update>
+
+    <delete id="deleteComment" parameterType="int">
+        delete from [dbo].[Comment] where comment_code=#{comment_code}
+    </delete>
+
+</mapper>
