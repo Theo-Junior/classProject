@@ -40,8 +40,40 @@ public class CentralMemberDAOimpl implements CentralMemberDAO{
 	}
 
 	@Override
+	public void updatePw(CentralMember centralmember) throws Exception {
+		sqlSession.update("com.classproject.testServer.dao.CentralMemberDAO.updatePw", centralmember);
+
+	}
+
+	@Override
+	public void updateName(CentralMember centralmember) throws Exception {
+		sqlSession.update("com.classproject.testServer.dao.CentralMemberDAO.updateName", centralmember);
+
+	}
+
+	@Override
+	public void updateNick(CentralMember centralmember) throws Exception {
+		sqlSession.update("com.classproject.testServer.dao.CentralMemberDAO.updateNick", centralmember);
+
+	}
+
+	@Override
+	public void updateTel(CentralMember centralmember) throws Exception {
+		sqlSession.update("com.classproject.testServer.dao.CentralMemberDAO.updateTel", centralmember);
+
+	}
+
+	@Override
+	public void updateEmail(CentralMember centralmember) throws Exception {
+		sqlSession.update("com.classproject.testServer.dao.CentralMemberDAO.updateEmail", centralmember);
+
+	}
+
+	@Override
 	public void deleteUser(int bid) throws Exception {
 		sqlSession.delete("com.classproject.testServer.dao.CentralMemberDAO.deleteUser", bid);
 		
 	}
+
+	
 }
