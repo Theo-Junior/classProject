@@ -10,11 +10,11 @@
 <mapper namespace="com.classproject.testServer.dao.CentralMemberDAO">
     
     <select id="selectUserById" parameterType="int" resultType="com.classproject.testServer.model.CentralMember">
-        select * from [dbo].[TestDB] where member_id=#{member_id}
+        select * from [dbo].[member] where member_id=#{member_id}
     </select>
 
     <select id="selectUserList" resultType="com.classproject.testServer.model.CentralMember">
-        select * from [dbo].[member] order by member_id
+        select * from [dbo].[member] order by member_code
     </select>
     
     <!-- 
