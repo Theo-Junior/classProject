@@ -25,7 +25,7 @@
         insert into [dbo].[board](board_code, write_title, write_content, write_date, member_code) values (#{board_code}, #{write_title}, #{write_content}, #{write_date}, #{member_code})
     </insert>
     
-    <update id="updateWrite" resultType="com.classproject.testServer.model.CentralBoard">
+    <update id="updateWrite" parameterType="com.classproject.testServer.model.CentralBoard">
         update [dbo].[board] set write_title=#{write_title}, write_content=#{write_content} where write_code=#{write_code}
     </update>  
 

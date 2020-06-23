@@ -50,7 +50,7 @@
     </update>
 
     <delete id="deleteUser" parameterType="int">
-        delete from [dbo].[TestDB] where member_id =#{member_id}
+        delete from [dbo].[member] where member_id =#{member_id}
     </delete>
 
 </mapper>

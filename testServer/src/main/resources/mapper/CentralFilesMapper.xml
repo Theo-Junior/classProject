@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.classproject.testServer.dao.CentralFilesDAO">
+	<select id="selectFilesByCode" parameterType="int" resultType="com.classproject.testServer.model.CentralFiles">
+        select * from [dbo].[Files] where files_code=#{files_code}
+    </select>
+
+    <select id="selectFilesList" resultType="com.classproject.testServer.model.CentralFiles">
+        select * from [dbo].[Files] where write_code = #{write_code}
+    </select>
+    <insert id="insertFiles">
+        insert into [dbo].[Files](write_code, files_name, file_realname) values (#{write_code}, #{files_name}, #{file_realname})
+    </insert>
+    
+    <update id="updateFiles" parameterType="com.classproject.testServer.model.CentralFiles">
+        update [dbo].[Files] set files_name=#{files_name}, file_realname=#{file_realname} where write_code=#{write_code}
+    </update>
+
+    <delete id="deleteFiles" parameterType="int">
+        delete from [dbo].[Files] where files_code=#{files_code}
+    </delete>
+
+</mapper>
