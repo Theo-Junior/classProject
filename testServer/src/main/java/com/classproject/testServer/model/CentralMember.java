@@ -5,9 +5,9 @@ public class CentralMember {
     String member_id;
     String member_pw;
     String member_nick;
+    String member_name;
     String member_tel;
     String member_email;
-    boolean member_isadmin;
 
 
     // Setter
@@ -17,6 +17,10 @@ public class CentralMember {
 
     public void setmember_pw(String pw){
         member_pw = pw;
+    }
+
+    public void setmember_name(String name){
+        member_name = name;
     }
 
     public void setmember_nick(String nick){
@@ -31,9 +35,6 @@ public class CentralMember {
         member_email = email;
     }
 
-    public void setmember_isadmin(boolean isadmin){
-        member_isadmin = isadmin;
-    }
 
     // member_code는 sql에서 자동으로 부여하게 설정해두었기 때문에 setter를 쓰지 않는다.
     // public void setmember_code(int code){
@@ -49,6 +50,10 @@ public class CentralMember {
         return member_pw;
     }
 
+    public String getmember_name(){
+        return member_name;
+    }
+
     public String getmember_nick(){
         return member_nick;
     }
@@ -61,9 +66,9 @@ public class CentralMember {
         return member_email;
     }
 
-    public Boolean getmember_isadmin(){
-        return member_isadmin;
-    }
+    // public Boolean getmember_isadmin(){
+    //     return member_isadmin;
+    // }
 
     public int getmember_code(){
         return member_code;
