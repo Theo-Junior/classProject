@@ -1,5 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" %>
+<%@page import="javax.security.auth.callback.ConfirmationCallback"%>
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
+		pageEncoding="UTF-8"%>
+    <%@ page import="java.io.PrintWriter"%>
+    <%@ page import="com.classproject.testServer.dao.*"%>
+    <%@ page import="com.classproject.testServer.model.*"%>
+	<%@ page import="java.util.ArrayList"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
 <head>
@@ -125,7 +131,50 @@
 				<div class="title">공지<br><div class="txt">공지사항 게시판 위치<br>
                     
                 <p>&nbsp;</p>
-                <p><b>여기에 게시판 삽입</b></p> 
+                <p><b>
+					<div class="container">
+						<div class="row">
+							<table class="table table-striped"
+			
+								style="text-align: center; border: 1px solid #dddddd">
+			
+								<thead>
+			
+									<tr>
+			
+										<th style="background-color: #eeeeee; text-align: center;">번호</th>
+										<th style="background-color: #eeeeee; text-align: center;">제목</th>
+										<th style="background-color: #eeeeee; text-align: center;">작성자</th>
+										<th style="background-color: #eeeeee; text-align: center;">작성일</th>
+			
+									</tr>
+			
+								</thead>
+			
+								<tbody>
+									<c:forEach items="${Boardlist}" var="item">
+										<tr>	
+												<td>${item.write_code}</td>
+												<!--detail?seq : 서택한 item.wite_code를 넘겨줘서 controller에서 받음-->
+												<td><a href = "detail?write_code=${item.write_code}">${item.write_title}</a></td>
+												<td>${item.member_code}</td>
+												<td>${item.board_code}</td>
+											</tr>
+									</c:forEach>
+									
+									<tr>
+										<td>1</td>
+										<td>2</td>
+										<td>3</td>
+										<td>4</td>
+									</tr>
+								</tbody>
+			
+							</table>
+							<input type="button" value="글 쓰기" style="float: right;" onclick="location.href='boardwrite';"> 
+						</div>
+					</div>
+				</b></p> 
                 </div>
                 </div>
                 </td>                
@@ -134,10 +183,11 @@
         
         
  <!-- 게시판을 긁어왔더니 HTML 코드에 에러가 발생합니다. 코드 작성시 주의 바랍니다. -->
-                    
+	<!-- 여기 기존에 있던 글목록 관련 코드인데 프론트에서 스타일 입힐떄 태그 참고용으로 일단 남깁니다
+		관련해서 적용하고 나면 지워주세요 -->                
                 
 	<!--MODULE//S-->
-		<form name="flist" method="post">
+		<!-- <form name="flist" method="post">
 		<input type="hidden" name="hCode" value="BOARD">
 		<input type="hidden" name="page" value="list">
 		<input type="hidden" name="sca" value="">
@@ -213,7 +263,7 @@
 
 		</form>
 
-		</table><p>
+		</table><p> -->
 
 	<!--MODULE//E-->
     

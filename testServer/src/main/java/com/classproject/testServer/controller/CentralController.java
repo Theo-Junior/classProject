@@ -8,8 +8,8 @@ import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import com.classproject.testServer.dao.CentralDAO; // DAO 임포트
-import com.classproject.testServer.model.CentralMember;
+import com.classproject.testServer.dao.*; // DAO 임포트
+import com.classproject.testServer.model.*;//Model전부 불러옴
 import com.classproject.testServer.model.CentralLogin;
 import com.classproject.testServer.service.CentralMemberService;
 import com.classproject.testServer.service.CentralService; // Service 임포트
@@ -21,7 +21,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
- 
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @Controller // Beans에게 지금 이 클래스는 Controller라고 Anotation(@)으로 알려줌
@@ -32,7 +33,8 @@ public class CentralController {
     CentralService centralservice;
     @Autowired
     CentralMemberService centralmemberservice; // 여기서 선언해줬다.
-    
+    @Autowired
+    CentralBoardDAO centralboarddao;
 
     @RequestMapping(value="/")
     public String index(Locale locale, Model model) {
@@ -147,11 +149,14 @@ public class CentralController {
         return "study_3";
     }
     //운영
-     @RequestMapping(value="/manage_1") 
-    public String manage_1() {
+    @RequestMapping(value="/manage_1") //게시판 테스트로 만든 controller 메소드======
+    public String manage_1(Model model)throws Exception {
         logger.info("Access manage_1 Page");
+        model.addAttribute("Boardlist", centralboarddao.selectWriteList());
         return "manage_1";
     }
+
+
      @RequestMapping(value="/manage_2") 
     public String manage_2() {
         logger.info("Access manage_2 Page");
@@ -167,7 +172,38 @@ public class CentralController {
         logger.info("Access manage_4 Page");
         return "manage_4";
     }
+    //게시판 ======
+    @RequestMapping(value="detail") //글 자세히 보기 manage_1page에 있는 글제목을 클릭시 글 내용을 볼수 있음
+    public String board_content(Model model,@RequestParam("write_code")int write_code)throws Exception {
+        model.addAttribute("Boardlist", centralboarddao.selectWriteByCode(write_code));
+        logger.info("Access board_content Page");
+        return "board_content";
+    }
 
+    @RequestMapping("boardinsert") //게시판 입력
+    public String boardinsert(HttpServletRequest request) throws Exception {
+        CentralBoard centralboard = new CentralBoard();
+
+        centralboard.setBoard_code(1); 
+        //insert 게시판에 따라서 페이지별 게시판 고유 값을 받아야 하지만 정해진게 없어서 추후 업데이트하는게 좋을듯
+        centralboard.setMember_code(100);
+        // Integer.parseInt(request.getParameter("password"))
+        // 로그인 유지 상태에서 로그인자의 정보중 member_code를 받아와야 하지만 현재 로그인 섹션유지 불가로 현재있는 코드인 100으로 고정
+        centralboard.setWrite_content(request.getParameter("write_content"));
+        centralboard.setWrite_title(request.getParameter("write_title"));
+        centralboard.setWrite_date("2020-06-24");
+        //날자를 jsp에서 받아와서 String타입으로 변환해야하는 어려움있음
+       
+        centralboarddao.insertWrite(centralboard);
+
+        return "redirect:/manage_1";// 입력이 다되면 원래페이지로 이동 이것도 고유 값을 받는게 좋을듯
+    }
+    @RequestMapping("boardwrite") //
+    public String boardWrite() {
+      return "boardwrite";
+    }
+
+    //로그인 ====
     @RequestMapping(value="/loginform") 
     public String login() {
         logger.info("Access login Page");
@@ -186,7 +222,7 @@ public class CentralController {
         //centralmember.setmember_code(Integer.parseInt(request.getParameter("code")));
 
         // centralmember 객체에 값을 할당해준다.
-        centralmember.setmember_code(2); //<-- 여기를 수정해준다.
+        // centralmember.setmember_code(2); //<-- 여기를 수정해준다.
         centralmember.setmember_id(request.getParameter("id")); 
         centralmember.setmember_pw(request.getParameter("password"));
         centralmember.setmember_nick(request.getParameter("nick"));
