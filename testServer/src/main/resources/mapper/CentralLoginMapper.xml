@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Login">
+    <select id="loginCheckID" parameterType="String" resultType="String">
+      select member_id from [dbo].[member] where member_id=#{login_id}
+    </select>
+    <select id="loginCheckPW" parameterType="String" resultType="String">
+      select member_pw from [dbo].[member] where member_id=#{login_id}
+    </select>
+</mapper>
