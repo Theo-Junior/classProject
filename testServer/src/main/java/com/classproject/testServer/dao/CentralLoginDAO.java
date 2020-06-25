@@ -1,8 +1,8 @@
-// package com.classproject.testServer.dao;
-// import java.util.List;
+package com.classproject.testServer.dao;
 
-// import com.classproject.testServer.model.CentralLogin;
-
-// public interface CentralLoginDAO {
-//     public void insertUser(CentralLogin centrallogin) throws Exception;
-// }
+import javax.servlet.http.HttpSession;
+import com.classproject.testServer.model.CentralLogin;
+public interface CentralLoginDAO {
+    public boolean loginCheckID(CentralLogin centrallogin);
+    public boolean loginCheckPW(CentralLogin centrallogin);
+}
