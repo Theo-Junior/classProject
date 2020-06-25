@@ -255,11 +255,12 @@ public class CentralController {
         centralmember.setmember_pw(request.getParameter("password"));
         centralmember.setmember_nick(request.getParameter("nick"));
         centralmember.setmember_tel(request.getParameter("tel"));
+        centralmember.setmember_name(request.getParameter("name"));
 
         //왜 메일이 안넘어오지.. 메일이 안넘어 오니 수정해주셔야 해요
-        //centralmember.setmember_email(request.getParameter("email"));
-        centralmember.setmember_email("KKK@KKK.com");
-        centralmember.setmember_isadmin(true);
+        centralmember.setmember_email(request.getParameter("email"));
+        // centralmember.setmember_email("KKK@KKK.com");
+        // centralmember.setmember_isadmin(true);
 
         // centralmemberservice 얘는 위의 32번째 줄에서 선언해줬다. 객체이름이 centralmemberservice이다.
         // 객체 내의 insertUser 메소드를 호출하고 파라미터는 centralmember로 한다.
