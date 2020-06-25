@@ -15,6 +15,8 @@ import com.classproject.testServer.model.*;//Model전부 불러옴
 import com.classproject.testServer.model.CentralLogin;
 import com.classproject.testServer.service.CentralMemberService;
 import com.classproject.testServer.service.CentralService; // Service 임포트
+import com.classproject.testServer.service.CentralLoginService;
+
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,22 +39,24 @@ public class CentralController {
     CentralMemberService centralmemberservice; // 여기서 선언해줬다.
     @Autowired
     CentralBoardDAO centralboarddao;
+    @Autowired
+    CentralLoginService centralloginservice;
 
     @RequestMapping(value="/")
     public String index(Locale locale, Model model) {
-    // 위의 메소드 내 인스턴스로 최초 페이지 로딩할 떄 변수(데이터)를 넘길 수 있어요.
-	// Locale은 지역 객체, Model은 로딩하고자 하는 JSP객체(그냥 Model model을 선언해서 사용하면 된다.)
+//     // 위의 메소드 내 인스턴스로 최초 페이지 로딩할 떄 변수(데이터)를 넘길 수 있어요.
+// 	// Locale은 지역 객체, Model은 로딩하고자 하는 JSP객체(그냥 Model model을 선언해서 사용하면 된다.)
 	    
-        logger.info("Access Index Page"); 
-	// 현재 실행중인 터미널(콘솔)에 현재 상태를 띄운다. 즉 System.out.print와 같다고 보면 된다.
-	// logger를 사용하려면 import org.slf4j.Logger; import org.slf4j.LoggerFactory; 가 있어야 한다.
+//         logger.info("Access Index Page"); 
+// 	// 현재 실행중인 터미널(콘솔)에 현재 상태를 띄운다. 즉 System.out.print와 같다고 보면 된다.
+// 	// logger를 사용하려면 import org.slf4j.Logger; import org.slf4j.LoggerFactory; 가 있어야 한다.
 	    
-        Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		String formattedDate = dateFormat.format(date);
-		model.addAttribute("serverTime", formattedDate);
+//         Date date = new Date();
+// 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+// 		String formattedDate = dateFormat.format(date);
+// 		model.addAttribute("serverTime", formattedDate);
 
-        return "index";
+        return "main";
     }
 
     @RequestMapping(value="/main")
@@ -280,19 +284,32 @@ public class CentralController {
     @RequestMapping(value="/login")
     public String login(HttpServletRequest request ) throws Exception {
         //아이디와 비밀번호 가져오기
-        String id= request.getParameter("id");
-        String password= request.getParameter("password");
-        //세션 생성
-        HttpSession session=request.getSession();
-        session.setAttribute("ID", id);
-        session.setAttribute("PASSWORD", password);
+        final String id= request.getParameter("id");
+        final String password= request.getParameter("password");
         //로그인 정보 저장
-        CentralLogin centrallogin =new CentralLogin();
+        final CentralLogin centrallogin =new CentralLogin();
         centrallogin.setlogin_id(request.getParameter("id")); 
         centrallogin.setlogin_password(request.getParameter("password"));
-        // 세션 동작 확인
+        final HttpSession session=request.getSession();
+        final boolean idcheck= centralloginservice.loginCheckID(centrallogin);
+        final boolean pwcheck=centralloginservice.loginCheckPW(centrallogin);
         logger.info(id+" "+password);
-        logger.info("return to main Page");
-        return "redirect:/main";
+        if(idcheck){
+            if(pwcheck){
+                //세션 생성
+                session.setAttribute("ID", id);
+                session.setAttribute("PASSWORD", password);
+                // 세션 동작 확인
+                logger.info(id+" "+password);
+                logger.info("return to main Page");
+                return "redirect:/main";
+            }else{
+                logger.info("비밀번호입력실패"+pwcheck+" "+password);
+                return "loginform";
+            }
+        }
+        else {
+            return "loginform";
+        }
     }
 }
