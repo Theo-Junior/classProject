@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -173,7 +175,7 @@ public class CentralController {
         return "manage_4";
     }
     //게시판 ======
-    @RequestMapping(value="detail") //글 자세히 보기 manage_1page에 있는 글제목을 클릭시 글 내용을 볼수 있음
+    @RequestMapping(value="board_content") //글 자세히 보기 manage_1page에 있는 글제목을 클릭시 글 내용을 볼수 있음
     public String board_content(Model model,@RequestParam("write_code")int write_code)throws Exception {
         model.addAttribute("Boardlist", centralboarddao.selectWriteByCode(write_code));
         logger.info("Access board_content Page");
@@ -183,26 +185,48 @@ public class CentralController {
     @RequestMapping("boardinsert") //게시판 입력
     public String boardinsert(HttpServletRequest request) throws Exception {
         CentralBoard centralboard = new CentralBoard();
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd/HH:mm:ss");
+        String datestr = sdf.format(cal.getTime());
 
-        centralboard.setBoard_code(1); 
+        centralboard.setBoard_code(1);
         //insert 게시판에 따라서 페이지별 게시판 고유 값을 받아야 하지만 정해진게 없어서 추후 업데이트하는게 좋을듯
         centralboard.setMember_code(100);
         // Integer.parseInt(request.getParameter("password"))
         // 로그인 유지 상태에서 로그인자의 정보중 member_code를 받아와야 하지만 현재 로그인 섹션유지 불가로 현재있는 코드인 100으로 고정
         centralboard.setWrite_content(request.getParameter("write_content"));
         centralboard.setWrite_title(request.getParameter("write_title"));
-        centralboard.setWrite_date("2020-06-24");
+        centralboard.setWrite_date(datestr);
         //날자를 jsp에서 받아와서 String타입으로 변환해야하는 어려움있음
        
         centralboarddao.insertWrite(centralboard);
 
-        return "redirect:/manage_1";// 입력이 다되면 원래페이지로 이동 이것도 고유 값을 받는게 좋을듯
+        return "redirect:/manage_1"; // 입력이 다되면 원래페이지로 이동 이것도 고유 값을 받는게 좋을듯
     }
     @RequestMapping("boardwrite") //
-    public String boardWrite() {
-      return "boardwrite";
+        public String boardWrite() {
+        return "boardwrite";
     }
+    
+    @RequestMapping("board_commit") //board uapte_commmit 하는 부분
+    public String board_update(HttpServletRequest request)throws Exception {
+        CentralBoard centralboard = new CentralBoard();
 
+        centralboard.setBoard_code(1); 
+        centralboard.setWrite_code(Integer.parseInt(request.getParameter("write_code")));
+        centralboard.setMember_code(100);
+        centralboard.setWrite_content(request.getParameter("write_content"));
+        centralboard.setWrite_title(request.getParameter("write_title"));
+        centralboard.setWrite_date("2020-06-24");
+       
+        centralboarddao.updateWrite(centralboard);
+        return "redirect:/detail?seq="+ centralboard.getWrite_code();
+    }
+    @RequestMapping("board_update") //
+    public String board_commit(Model model,@RequestParam("write_code")int write_code)throws Exception {
+        model.addAttribute("Boardlist", centralboarddao.selectWriteByCode(write_code));
+        return "board_update";
+    }
     //로그인 ====
     @RequestMapping(value="/loginform") 
     public String login() {
