@@ -31,7 +31,7 @@
 				<h1 class="logo"><a href="main"><img src="img/logo.png", width="150" alt="빅데이터반" /></a></h1>
 				<div class="top_menu">
 					<ul>
-                        <li><a href="login">LOGIN</a></li>
+                        <li><a href="loginform">LOGIN</a></li>
                         <li><a href="join">JOIN</a></li>
                     </ul>
 				</div>
@@ -156,9 +156,9 @@
 										<tr>	
 												<td>${item.write_code}</td>
 												<!--detail?seq : 서택한 item.wite_code를 넘겨줘서 controller에서 받음-->
-												<td><a href = "detail?write_code=${item.write_code}">${item.write_title}</a></td>
+												<td><a href = "board_content?write_code=${item.write_code}">${item.write_title}</a></td>
 												<td>${item.member_code}</td>
-												<td>${item.board_code}</td>
+												<td>${item.write_date}</td>
 											</tr>
 									</c:forEach>
 									
@@ -179,101 +179,7 @@
                 </div>
                 </td>                
                 </table>        
-        
-        
-        
- <!-- 게시판을 긁어왔더니 HTML 코드에 에러가 발생합니다. 코드 작성시 주의 바랍니다. -->
-	<!-- 여기 기존에 있던 글목록 관련 코드인데 프론트에서 스타일 입힐떄 태그 참고용으로 일단 남깁니다
-		관련해서 적용하고 나면 지워주세요 -->                
-                
-	<!--MODULE//S-->
-		<!-- <form name="flist" method="post">
-		<input type="hidden" name="hCode" value="BOARD">
-		<input type="hidden" name="page" value="list">
-		<input type="hidden" name="sca" value="">
-		<input type="hidden" name="sfl" value="">
-		<input type="hidden" name="stx" value="">
-		<input type="hidden" name="pg" value="1">
-		<table id="board_list" class="text_left">
-			<thead>
-				<tr>
-					<th width=80>번호</th>
-					<th width=360>제목</th>
-					<th width=80>파일</th>
-					<th width=80>조회수</th>
-					<th width=100 style="background:none;">등록일</th>
-				</tr>
-			</thead>
-			<tbody>
-										<Tr>
-						<Td class="text_center">2</td>
-						<Td style="padding-left:10px;text-align:left"><a href="?page=view&idx=1446&pg=1&hCode=BOARD&bo_idx=3&sfl=&stx=">게시글 제목</a></td>
-						<Td class="text_center"></td>
-						<Td class="text_center">186</td>
-						<Td class="text_center">2020-03-11</td>
-					</tr>
-										<Tr>
-						<Td class="text_center">1</td>
-						<Td style="padding-left:10px;text-align:left"><a href="?page=view&idx=1423&pg=1&hCode=BOARD&bo_idx=3&sfl=&stx=">게시글 제목</a></td>
-						<Td class="text_center"><a href="NFUpload/nfupload_down.php?tmp_name=20200225105132.9350.4.0.pdf&name=%ED%9A%8C%EC%82%AC%EC%86%8C%EA%B0%9C%EC%84%9C_%28%EC%A3%BC%29%EC%97%90%EC%9D%B4%EC%B9%98%EC%97%A0%EC%97%94%EC%BB%B4%ED%8D%BC%EB%8B%88.pdf"><img src='' border=0 alt='파일다운로드'></a></td>
-						<Td class="text_center">200</td>
-						<Td class="text_center">2020-02-25</td>
-					</tr>
-										
-								</tbody>
-			<tfoot>
-				<tr>
-					<td colspan="5"></td>
-				</tr>
-			</tfoot>
-		</table>
-
-		<table id="default_size">
-			<Tr>
-				<Td style="text-align:right"></td>
-			</tr>
-		</table>
-
-		<table id="default_size" class="text_center">
-			<tr>
-				<td>
-				   <img src="images/common/page_Btn_01.jpg" class="page_first"/> <img src="images/common/page_Btn_02.jpg" class="page_prev"/> <strong class="sel_page_num">1</strong> <a href="/index.php?pg=2&page=list&hCode=BOARD&bo_idx=3&sfl=&stx=" class="page_num">2</a> <a href="/index.php?pg=3&page=list&hCode=BOARD&bo_idx=3&sfl=&stx=" class="page_num">3</a> <a href="/index.php?pg=4&page=list&hCode=BOARD&bo_idx=3&sfl=&stx=" class="page_num">4</a> <a href="/index.php?pg=5&page=list&hCode=BOARD&bo_idx=3&sfl=&stx=" class="page_num">5</a> <a href="/index.php?pg=2&page=list&hCode=BOARD&bo_idx=3&sfl=&stx="><img src="images/common/page_Btn_03.jpg" class="page_next"/></a> <a href="/index.php?pg=5&page=list&hCode=BOARD&bo_idx=3&sfl=&stx="><img src="images/common/page_Btn_04.jpg" class="page_last"/></a>				</td>
-			</tr>
-		</table>
-		<br />
-		</form>
-		<table id="default_size" class=b_search>
-
-		<form name="fsearch" method="get" action="/">
-		<input type="hidden" name="hCode" value="BOARD" />
-		<input type="hidden" name="bo_idx" value="3" />
-		<input type="hidden" name="subNum" value="3" />
-
-		<tr>
-		<td class="text_center">
-			<select name="sfl" class=b_select>
-				<option value="title" >제목</option>
-				<option value="context" >내용</option>
-				<option value="all" >제목 + 내용</option>
-			</select>
-			<input type="text" name="stx" value="" size=30 class=input_m>
-			<input type="button" value="검색" onClick="document.fsearch.submit()" rel="pulse-shrink" class="button pulse-shrink" >
-		</td>
-		</tr>
-
-		</form>
-
-		</table><p> -->
-
-	<!--MODULE//E-->
-    
-    
- <!-- 게시판을 긁어왔더니 HTML 코드에 에러가 발생합니다. 코드 작성시 주의 바랍니다. -->
-
-    
-    
-        
-        
+  
 	</div>
     </div>
     </div>
