@@ -22,12 +22,12 @@
 		</div>
 		<div id="header">
 			<div id="header_content">
-				<h1 class="logo"><a href="index.php"><img src="images/common/logo.png" alt="빅데이터반" /></a></h1>
+				<h1 class="logo"><a href="main"><img src="img/logo.png", width="150" alt="빅데이터반" /></a></h1>
 				<div class="top_menu">
 					<ul>
-						<li><a href="#">LOGIN</a></li>
-						<li><a href="#">JOIN</a></li>
-											</ul>
+                        <li><a href="login">LOGIN</a></li>
+                        <li><a href="join">JOIN</a></li>
+                    </ul>
 				</div>
 			</div>
 			<!-- gnb//S-->
