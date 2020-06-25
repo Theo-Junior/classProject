@@ -23,12 +23,20 @@
 		<div id="header">
 			<div id="header_content">
 				<h1 class="logo"><a href="main"><img src="img/logo.png", width="150" alt="빅데이터반" /></a></h1>
-				<div class="top_menu">
-					<ul>
-                        <li><a href="login">LOGIN</a></li>
-                        <li><a href="join">JOIN</a></li>
-                    </ul>
-				</div>
+				<%String sessionID=(String)session.getAttribute("ID"); if(sessionID==null){%>
+					<div class="top_menu">
+						<ul>
+							<li><a href="login">LOGIN</a></li>
+							<li><a href="registerform">JOIN</a></li>
+						</ul>
+					</div>
+				<%}else{%>
+					<div class="top_menu">
+						<ul>
+							<li><font size = "2em">"<%=sessionID%>"님 환영합니다</font></li>
+						</ul>
+					</div>
+				<%}%>				
 			</div>
 			<!-- gnb//S-->
 			<div id="gnb">
