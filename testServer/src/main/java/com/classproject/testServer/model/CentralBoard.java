@@ -14,7 +14,9 @@ public class CentralBoard {
 //	public void setWrite_code(int write_code) {
 //		this.write_code = write_code;
 //	}
-	
+	public void setWrite_code(int write_code){
+		this.write_code = write_code;
+	}
 	//Setter
 	public void setBoard_code(int board_code) {
 		this.board_code = board_code;

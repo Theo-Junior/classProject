@@ -220,7 +220,7 @@ public class CentralController {
         centralboard.setWrite_date("2020-06-24");
        
         centralboarddao.updateWrite(centralboard);
-        return "redirect:/detail?seq="+ centralboard.getWrite_code();
+        return "redirect:/board_content?write_code="+ centralboard.getWrite_code();
     }
     @RequestMapping("board_update") //
     public String board_commit(Model model,@RequestParam("write_code")int write_code)throws Exception {

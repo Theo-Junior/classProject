@@ -30,7 +30,7 @@ public class CentralBoardDAOimpl implements CentralBoardDAO{
 
 	@Override
 	public CentralBoard selectWriteByCode(int bid) throws Exception {
-		return sqlSession.selectOne("com.classproject.testServer.dao.CentralBoardDAO.selectWriteByCode");
+		return sqlSession.selectOne("com.classproject.testServer.dao.CentralBoardDAO.selectWriteByCode",bid);
 	}
 
 	@Override
