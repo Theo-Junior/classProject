@@ -102,7 +102,7 @@
 
 <div id="main_container">
 <!-- main_container //S-->
-<img src="img/main.jpg" width="1002" height="356" alt="" />
+<img src="img/main.jpg" width="1002" height="240" alt="" />
 
 </div>
 

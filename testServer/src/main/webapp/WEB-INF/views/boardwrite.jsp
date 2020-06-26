@@ -139,30 +139,32 @@ $(document).ready(function() {
         </div>
 
 
-		<h2 style="text-align: center;">글 작성</h2><br><br><br>
+		<h2 style="text-align: center; padding: 46px 0 0; font-size: 22px; font-weight: bold; color: #333;">
+			글 작성
+		</h2><br><br>
 
-		<div style="width: 60%; margin: auto;">
+		<div style="width: 707px; margin: auto;">
 			<form method="post" action="boardinsert">
-				<input type="text" name="board_code" style="width: 20%;" placeholder="board_code"/><br>
-				<input type="text" name="write_title" style="width: 40%;" placeholder="제목"/>
+				<input type="text" name="board_code" style="width: 20%; padding: 3px;" placeholder="board_code"/>
+				<br><br>
+				<input type="text" name="write_title" style="width: 40%; padding: 3px;" placeholder="제목"/>
 				<br><br> 
 				<textarea id="summernote" name="write_content"></textarea>
-				<input type="submit" value="작성"/>
+				<br>
+				<input type="submit" style="padding: 1px;" value="작성"/>
 			</form>
 		</div>
 		<div id="footer">
 			<h2 class="hide">하단영역</h2>
-			<div id="footer_content">
+			<div id="footer_content" >
 				<div class="address">
-					<address>(07702) 서울특별시 강서구 화곡로 179 대한상공회의소 서울기술교육센터<br />
+					<address style="line-height: 18px; margin-bottom: 0;">(07702) 서울특별시 강서구 화곡로 179 대한상공회의소 서울기술교육센터<br />
 					TEL.02-311-1000  /  FAX.02-2697-9700</address>
 				</div>
-
-				<div class="copy">
+				<div class="copy" style="padding: 19.5px 0 0 0;">
 					Copyright(c) 2020 상반기 자바기반 빅데이터 플랫폼 구축 전문가 과정 수강생, All Rights Reserved.
 				</div>
 			</div>
 		</div>
-
 </body>
 </html>
