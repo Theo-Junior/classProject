@@ -24,7 +24,26 @@
 				alert("비밀번호를 동일하게 입력하세요.");
 				return false;
 			}
+			if(!document.userInfo.name.value){
+				alert("이름을 입력하세요.");
+				return false;
+			}
+			if(!document.userInfo.tel.value){
+				alert("전화번호를 입력하세요.");
+				return false;
+			}
+			// if(!document.userInfo.email.value){
+			// 	alert("E-Mail를 입력하세요.");
+			// 	return false;
+			// } email.value로 하면 값이 계속 안받아져서 그냥 안했어요 이부분은
+			else{
+				alert("회원가입이 완료되었습니다.")
+			}
+				
+			
 		}
+
+		
 	</script>
 	
 </head>

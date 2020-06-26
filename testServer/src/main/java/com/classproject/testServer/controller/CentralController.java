@@ -271,7 +271,6 @@ public class CentralController {
         // 위의 과정이 완료되면 터미널에 메세지를 출력해준다.
         logger.info("Success Join");
         logger.info("return to main Page");
-
         // Mapper.xml까지 처리하고 나면 리턴으로 돌아온다. 리턴으로 돌아와서 우리가 띄우고자 하는 페이지를 띄워준다.
         // redirect:는 문법이고 /main페이지로 리다이렉팅(돌아간다)한다는 뜻이다. 여기까지가 끝이다.
         return "redirect:/main";// 회원가입이 완료되면 메인페이지를 띄워준다.
