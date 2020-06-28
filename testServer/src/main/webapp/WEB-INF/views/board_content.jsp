@@ -113,8 +113,6 @@ jQuery('#gnb').gnb({ d1: 0, d2: 0 });
 	<ul class="left_lst">
 		<!--style='color:#7d0101; font-weight:600; background:url(/images/menu/menu_on.gif) 0 0 no-repeat;'-->
 		<li><a href="manage_1" style='color:#281555; font-weight:600; background:url(img/menu_on.gif) 0 0 no-repeat;'>공지</a></li>
-		<li><a href="manage_2">건의</a></li>
-        <li><a href="manage_3">질문</a></li>
         <li><a href="manage_4">문의 Q&amp;A</a></li>
 	</ul>
 </div>
