@@ -23,12 +23,20 @@
 		<div id="header">
 			<div id="header_content">
 				<h1 class="logo"><a href="main"><img src="img/logo.png", width="150" alt="빅데이터반" /></a></h1>
-				<div class="top_menu">
-					<ul>
-                        <li><a href="login">LOGIN</a></li>
-                        <li><a href="join">JOIN</a></li>
-                    </ul>
-				</div>
+				<%String sessionID=(String)session.getAttribute("ID"); if(sessionID==null){%>
+					<div class="top_menu">
+						<ul>
+							<li><a href="login">LOGIN</a></li>
+							<li><a href="registerform">JOIN</a></li>
+						</ul>
+					</div>
+				<%}else{%>
+					<div class="top_menu">
+						<ul>
+							<li><font size = "2em">"<%=sessionID%>"님 환영합니다</font></li>
+						</ul>
+					</div>
+				<%}%>				
 			</div>
 			<!-- gnb//S-->
 			<div id="gnb">
@@ -39,8 +47,7 @@
 								<li><a href="sogae_1">클래스 소개</a></li>
 								<li><a href="sogae_2">교수님 소개</a></li>
 								<li><a href="sogae_3">센터 소개</a></li>
-								<li><a href="sogae_4">기수 연혁</a></li>
-								<li><a href="sogae_5">프로젝트 소개</a></li>
+								<li><a href="sogae_4">프로젝트 소개</a></li>
 							</ul>
 						</div>
 					</li>
@@ -49,8 +56,6 @@
 							<ul>
 								<li><a href="haksoup_1">프로젝트 소개</a></li>
 								<li><a href="haksoup_2">코드 공유</a></li>
-								<li><a href="haksoup_3">페이지 및 자료 공유</a></li>
-								<li><a href="haksoup_4">캐글 분석</a></li>
 							</ul>
 						</div>
 					</li>
@@ -66,8 +71,8 @@
 					<li class="m4"><a href="study_1">클래스 스터디</a>
 						<div class="submenu">
 							<ul>
-								<li><a href="study_1">교수진</a></li>
-								<li><a href="study_2">직원</a></li>
+								<li><a href="study_1">JAVA</a></li>
+								<li><a href="study_2">PYTHON</a></li>
 							</ul>
 						</div>
 					</li>
@@ -75,8 +80,6 @@
 						<div class="submenu">
 							<ul>
 								<li><a href="manage_1">공지</a></li>
-								<li><a href="manage_2">건의</a></li>
-								<li><a href="manage_3">질문</a></li>
 								<li><a href="manage_4">문의 Q&amp;A</a></li>
 							</ul>
 						</div>
@@ -109,8 +112,7 @@
 		<li><a href="sogae_1">클래스 소개</a></li>
 		<li><a href="sogae_2" style='color:#281555; font-weight:600; background:url(img/menu_on.gif) 0 0 no-repeat;'>교수님 소개</a></li>
 		<li><a href="sogae_3">센터 소개</a></li>
-		<li><a href="sogae_4">기수 연혁</a></li>
-		<li><a href="sogae_5">프로젝트 소개</a></li>
+		<li><a href="sogae_4">프로젝트 소개</a></li>
 	</ul>
 </div><!-- content //S-->
 <!-- <<<<<<< HEAD
@@ -124,40 +126,13 @@
 ​
     	<!-- con_area //S-->
 	<div class="con_area">
-		<img src="img/prof.jpg" width="800">
+		<img src="img/prof.jpg" style="width : 100%;">
 <!-- 		<p font-size=10px> 
         <br>
         ⓒ GOSHO AOYAMA / YTV / TMS / SHOGAKUKAN / <br>
         DETECTIVE CONAN COMMITEE Under License to CJ E&M CORPORATION Produced by TMS ENTERTAINTMENT, LTD<br>
 		</p> -->
 	</div>
-		<table>
-		<tr>
-			<td>
-			 이정구 교수님 <br>
-			 Microsoft Certified Trainer <br>
-			</td>
-			<td>
-			 박길식 교수님 <br>
-			 광운대학교 산학협력단 연구초빙교수 <br>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<p>
-					Experiences : Machine Learning, Deep Learning, AI, BigData, <br>
-					R, Python, Cloud, Azure, Java, .NET <br>
-				</p>
-			</td>
-			<td>
-				<p>
-					- LH공사 아파트 관리비 분석 프로젝트(2019 ~ , 연구교수) <br>
-					- 외교부, 농식품부 등 빅데이터 및 인공지능 프로젝트 지도 <br>
-					- 저서 ; 안드로이드 프로그래밍(한빛미디어)외 2권 <br>
-				</p>
-			</td>
-		</tr>
-		</table>
 		</div>
 </div>
 <!-- >>>>>>> 753a0522c4e088bb712d248d83c4b33a98fc6b60 -->

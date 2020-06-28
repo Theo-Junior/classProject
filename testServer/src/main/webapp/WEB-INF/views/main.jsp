@@ -44,11 +44,10 @@
 					<li class="m1"><a href="sogae_1">소개합니다</a>
 						<div class="submenu">
 							<ul>
-								<li><a href="sogae_1">클래스소개</a></li>
-								<li><a href="sogae_2">교수님소개</a></li>
-								<li><a href="sogae_3">센터소개</a></li>
-								<li><a href="sogae_4">기수 연혁</a></li>
-								<li><a href="sogae_5">프로젝트 소개</a></li>
+								<li><a href="sogae_1">클래스 소개</a></li>
+								<li><a href="sogae_2">교수님 소개</a></li>
+								<li><a href="sogae_3">센터 소개</a></li>
+								<li><a href="sogae_4">프로젝트 소개</a></li>
 							</ul>
 						</div>
 					</li>
@@ -57,8 +56,6 @@
 							<ul>
 								<li><a href="haksoup_1">프로젝트 소개</a></li>
 								<li><a href="haksoup_2">코드 공유</a></li>
-								<li><a href="haksoup_3">페이지 및 자료 공유</a></li>
-								<li><a href="haksoup_4">캐글 분석</a></li>
 							</ul>
 						</div>
 					</li>
@@ -74,8 +71,8 @@
 					<li class="m4"><a href="study_1">클래스 스터디</a>
 						<div class="submenu">
 							<ul>
-								<li><a href="study_1">교수진</a></li>
-								<li><a href="study_2">직원</a></li>
+								<li><a href="study_1">JAVA</a></li>
+								<li><a href="study_2">PYTHON</a></li>
 							</ul>
 						</div>
 					</li>
@@ -83,8 +80,6 @@
 						<div class="submenu">
 							<ul>
 								<li><a href="manage_1">공지</a></li>
-								<li><a href="manage_2">건의</a></li>
-								<li><a href="manage_3">질문</a></li>
 								<li><a href="manage_4">문의 Q&amp;A</a></li>
 							</ul>
 						</div>
@@ -143,7 +138,6 @@
 					</tr>
 				</tbody>
 			</table>
-				<a href="#" class="more2">MORE</a>
 			</div>
 		</div>
 		<div class="column2">
@@ -151,9 +145,8 @@
 		<h2>최신 데이터 분석 <span>DATA</span></h2>
 		<ul>
 			<li>
-				<a href="#"><img src="img/da.jpg", width="500" alt="데이터분석"/></a></li>
+				<a href="bunsuk_1"><img src="img/da.jpg" alt="데이터분석" style ="width:450px; height:305px;"/></a></li>
 		</ul>
-				<a href="#" class="more2">MORE</a>
 			</div>
 		</div>
 	</div>

@@ -23,12 +23,20 @@
 		<div id="header">
 			<div id="header_content">
 				<h1 class="logo"><a href="main"><img src="img/logo.png", width="150" alt="빅데이터반" /></a></h1>
-				<div class="top_menu">
-					<ul>
-                        <li><a href="login">LOGIN</a></li>
-                        <li><a href="join">JOIN</a></li>
-                    </ul>
-				</div>
+				<%String sessionID=(String)session.getAttribute("ID"); if(sessionID==null){%>
+					<div class="top_menu">
+						<ul>
+							<li><a href="login">LOGIN</a></li>
+							<li><a href="registerform">JOIN</a></li>
+						</ul>
+					</div>
+				<%}else{%>
+					<div class="top_menu">
+						<ul>
+							<li><font size = "2em">"<%=sessionID%>"님 환영합니다</font></li>
+						</ul>
+					</div>
+				<%}%>				
 			</div>
 			<!-- gnb//S-->
 			<div id="gnb">
@@ -39,8 +47,7 @@
 								<li><a href="sogae_1">클래스 소개</a></li>
 								<li><a href="sogae_2">교수님 소개</a></li>
 								<li><a href="sogae_3">센터 소개</a></li>
-								<li><a href="sogae_4">기수 연혁</a></li>
-								<li><a href="sogae_5">프로젝트 소개</a></li>
+								<li><a href="sogae_4">프로젝트 소개</a></li>
 							</ul>
 						</div>
 					</li>
@@ -49,8 +56,6 @@
 							<ul>
 								<li><a href="haksoup_1">프로젝트 소개</a></li>
 								<li><a href="haksoup_2">코드 공유</a></li>
-								<li><a href="haksoup_3">페이지 및 자료 공유</a></li>
-								<li><a href="haksoup_4">캐글 분석</a></li>
 							</ul>
 						</div>
 					</li>
@@ -66,8 +71,8 @@
 					<li class="m4"><a href="study_1">클래스 스터디</a>
 						<div class="submenu">
 							<ul>
-								<li><a href="study_1">교수진</a></li>
-								<li><a href="study_2">직원</a></li>
+								<li><a href="study_1">JAVA</a></li>
+								<li><a href="study_2">PYTHON</a></li>
 							</ul>
 						</div>
 					</li>
@@ -75,8 +80,6 @@
 						<div class="submenu">
 							<ul>
 								<li><a href="manage_1">공지</a></li>
-								<li><a href="manage_2">건의</a></li>
-								<li><a href="manage_3">질문</a></li>
 								<li><a href="manage_4">문의 Q&amp;A</a></li>
 							</ul>
 						</div>
@@ -112,106 +115,16 @@
 <div id="content">
 	<div class="path">Home &nbsp;&gt;&nbsp; 잼이 나는 데이터 분석 &nbsp;&gt;&nbsp; 데싸 결과물</div>
 	<div class="sub_title">
-		<h2>데싸 결과물</h2>
+		<h2>데이터 분석팀 결과물</h2>
+		<div>스압주의</div>
 	</div>
                 
     
     	<!-- con_area //S-->
 	<div class="con_area">
-				<table width="100%" cellpadding=0 cellspacing=0 >
-				<td valign=top colspan=2>
-				<div class="title">분석 1<br><div class="txt">분석 1 입니다. 분석 1 입니다.<br>
-                    
-                <p>&nbsp;</p>
-                    
-                            <table id="gallery_list" class="text_left">
-                <thead>
-                    <tr>
-                        <th colspan="5">&nbsp;</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <tr>				
-                    <td width="140" style="padding:5px 0px 5px 0px" class="text_center" valign="bottom">
-                        <a href="__">
-                        <dl id="photo_thumb">
-                            <img src="thumbnail.php?filepath=images/common/no_image_1002.jpg&amp;size=200" width="100" height="100">
-                            <dt>제목</dt>
-                            <dd>2020-06-04</dd>
-                        </dl>
-                        </a>
-                    </td>
-                    <td width="140" style="padding:5px 0px 5px 0px" class="text_center" valign="bottom">
-                        <a href="__">
-                        <dl id="photo_thumb">
-                            <img src="thumbnail.php?filepath=upload/board_photo/1590931227_0.png&amp;size=200" width="100" height="100">
-                            <dt>제목</dt>
-                            <dd>2020-05-31</dd>
-                        </dl>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="5" class="mid_line"></td>
-                </tr>
-                <tr>
-                    <td colspan="5" class="mid_line"></td></tr><tr></tr><tr><td colspan="5" class="mid_line">
-                    
-                    </td>
-                </tr>
-                <tr>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="5"></td>
-                </tr>
-            </tfoot>
-            </table>    
-                    
-                    
-                <table id="default_size" class="text_center">
-                <tbody>
-                <tr>
-                    <td>
-                       <img src="images/common/page_Btn_01.jpg" class="page_first"> <img src="images/common/page_Btn_02.jpg" class="page_prev"> <strong class="sel_page_num">1</strong> <a href="/index.php?pg=2&amp;page=list&amp;hCode=BOARD&amp;bo_idx=1&amp;sfl=&amp;stx=" class="page_num">2</a> <a href="/index.php?pg=3&amp;page=list&amp;hCode=BOARD&amp;bo_idx=1&amp;sfl=&amp;stx=" class="page_num">3</a> <a href="/index.php?pg=4&amp;page=list&amp;hCode=BOARD&amp;bo_idx=1&amp;sfl=&amp;stx=" class="page_num">4</a> <a href="/index.php?pg=5&amp;page=list&amp;hCode=BOARD&amp;bo_idx=1&amp;sfl=&amp;stx=" class="page_num">5</a> <a href="/index.php?pg=6&amp;page=list&amp;hCode=BOARD&amp;bo_idx=1&amp;sfl=&amp;stx=" class="page_num">6</a> <a href="/index.php?pg=7&amp;page=list&amp;hCode=BOARD&amp;bo_idx=1&amp;sfl=&amp;stx=" class="page_num">7</a> <a href="/index.php?pg=8&amp;page=list&amp;hCode=BOARD&amp;bo_idx=1&amp;sfl=&amp;stx=" class="page_num">8</a> <a href="/index.php?pg=2&amp;page=list&amp;hCode=BOARD&amp;bo_idx=1&amp;sfl=&amp;stx="><img src="images/common/page_Btn_03.jpg" class="page_next"></a> <a href="/index.php?pg=8&amp;page=list&amp;hCode=BOARD&amp;bo_idx=1&amp;sfl=&amp;stx="><img src="images/common/page_Btn_04.jpg" class="page_last"></a>				
-                    </td>
-                </tr>
-            </tbody>
-            </table>
-                    
-                    
-                    
-                    
-            <table id="default_size" class="b_search">
-    
-            <form name="fsearch" method="get" action="index.php?hCode=$hCode&amp;bo_idx=$bo_idx"></form>
-            <input type="hidden" name="hCode" value="BOARD">
-            <input type="hidden" name="bo_idx" value="1">
-            <input type="hidden" name="subNum" value="1">
-    
-            <tbody><tr>
-            <td class="text_center">
-                <select name="sfl" class="b_select">
-                    <option value="title">제목</option>
-                    <option value="context">내용</option>
-                    <option value="all">제목 + 내용</option>
-                </select>
-                <input type="text" name="stx" value="" size="30" class="input_m">
-                <input type="button" value="검색" onclick="document.fsearch.submit()" rel="pulse-shrink" class="button pulse-shrink">
-            </td>
-            </tr>
-    
-            
-    
-            </tbody></table>
-                    
-                                        
-                    
-                    
-                </div></div>
-                </td>
-                </table>
+		<img src = "img/dataa.jpg" style="width : 100%">
+		
+				
 	</div>
     </div>
     </div>

@@ -139,17 +139,24 @@ input:focus::-webkit-input-placeholder {
 				<li><a href="#gnb">주메뉴 바로가기</a></li>
 			</ul>
 		</div>
-		<div id="header">
-			<div id="header_content">
-				<h1 class="logo"><a href="main"><img src="img/logo.png", width="150" alt="빅데이터반" /></a></h1>
-				<div class="top_menu">
-					<ul>
-						<li><a href="login">LOGIN</a></li>
-						
-                        <li><a href="join">JOIN</a></li>
-                    </ul>
+			<div id="header">
+				<div id="header_content">
+					<h1 class="logo"><a href="main"><img src="img/logo.png", width="150" alt="빅데이터반" /></a></h1>
+					<%String sessionID=(String)session.getAttribute("ID"); if(sessionID==null){%>
+						<div class="top_menu">
+							<ul>
+								<li><a href="login">LOGIN</a></li>
+								<li><a href="registerform">JOIN</a></li>
+							</ul>
+						</div>
+					<%}else{%>
+						<div class="top_menu">
+							<ul>
+								<li><font size = "2em">"<%=sessionID%>"님 환영합니다</font></li>
+							</ul>
+						</div>
+					<%}%>				
 				</div>
-			</div>
 			<!-- gnb//S-->
 			<div id="gnb">
 				<ul>
@@ -159,8 +166,7 @@ input:focus::-webkit-input-placeholder {
 								<li><a href="sogae_1">클래스 소개</a></li>
 								<li><a href="sogae_2">교수님 소개</a></li>
 								<li><a href="sogae_3">센터 소개</a></li>
-								<li><a href="sogae_4">기수 연혁</a></li>
-								<li><a href="sogae_5">프로젝트 소개</a></li>
+								<li><a href="sogae_4">프로젝트 소개</a></li>
 							</ul>
 						</div>
 					</li>
@@ -169,8 +175,6 @@ input:focus::-webkit-input-placeholder {
 							<ul>
 								<li><a href="haksoup_1">프로젝트 소개</a></li>
 								<li><a href="haksoup_2">코드 공유</a></li>
-								<li><a href="haksoup_3">페이지 및 자료 공유</a></li>
-								<li><a href="haksoup_4">캐글 분석</a></li>
 							</ul>
 						</div>
 					</li>
@@ -179,15 +183,15 @@ input:focus::-webkit-input-placeholder {
 							<ul>
 								<li><a href="bunsuk_1">데싸 결과물</a></li>
 								<li><a href="bunsuk_2">주제 문의</a></li>
-
+								
 							</ul>
 						</div>
 					</li>
 					<li class="m4"><a href="study_1">클래스 스터디</a>
 						<div class="submenu">
 							<ul>
-								<li><a href="study_1">교수진</a></li>
-								<li><a href="study_2">직원</a></li>
+								<li><a href="study_1">JAVA</a></li>
+								<li><a href="study_2">PYTHON</a></li>
 							</ul>
 						</div>
 					</li>
@@ -195,8 +199,6 @@ input:focus::-webkit-input-placeholder {
 						<div class="submenu">
 							<ul>
 								<li><a href="manage_1">공지</a></li>
-								<li><a href="manage_2">건의</a></li>
-								<li><a href="manage_3">질문</a></li>
 								<li><a href="manage_4">문의 Q&amp;A</a></li>
 							</ul>
 						</div>
