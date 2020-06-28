@@ -225,7 +225,7 @@ input:focus::-webkit-input-placeholder {
 					<div class="con_area" style = "font-family: 'Roboto', sans-serif; padding : 40px 0 40px 0;">
 					
 						<!-- 값(파라미터) 전송은 POST 방식, 전송할 페이지는 LoginPro.jsp -->
-						<form method="post" action="../pro/LoginPro.jsp">
+						<form method="post" action="login">
 							<h2>
 								<span class="entypo-login"><i class="fa fa-sign-in"></i></span>
 								Login
