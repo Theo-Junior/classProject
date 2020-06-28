@@ -26,7 +26,7 @@
 				<%String sessionID=(String)session.getAttribute("ID"); if(sessionID==null){%>
 					<div class="top_menu">
 						<ul>
-							<li><a href="login">LOGIN</a></li>
+							<li><a href="loginform">LOGIN</a></li>
 							<li><a href="registerform">JOIN</a></li>
 						</ul>
 					</div>
