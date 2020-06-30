@@ -117,8 +117,6 @@
 		<!--style='color:#7d0101; font-weight:600; background:url(/images/menu/menu_on.gif) 0 0 no-repeat;'-->
 		<li><a href="haksoup_1">프로젝트 소개</a></li>
 		<li><a href="haksoup_2" style='color:#281555; font-weight:600; background:url(img/menu_on.gif) 0 0 no-repeat;'>코드 공유</a></li>
-		<li><a href="haksoup_3">페이지 및 자료 공유</a></li>
-		<li><a href="haksoup_4">캐글 분석</a></li>
 	</ul>
 </div><!-- content //S-->
 <div id="content">

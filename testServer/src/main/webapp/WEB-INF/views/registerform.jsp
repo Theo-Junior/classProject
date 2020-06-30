@@ -15,6 +15,8 @@
 <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="js/gnb.js"></script>
 <script type="text/javascript">
+
+
 	
 	// 필수 입력정보인 아이디, 비밀번호가 입력되었는지 확인하는 함수
 	function checkValue()
@@ -53,7 +55,115 @@
 		
 	}
 </script>
+
+
+<style type="text/css">
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+[class*="entypo-"]:before {
+	font-family: 'entypo', sans-serif;
+}
+
+*, *:before, *:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+
+h2 {
+	color: #3CA0FF;
+	margin-left: 0px;
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 30px;
+	margin-left: 0%;
+	padding-bottom: 15px;
+	border-bottom: 1px solid rgba(255,255,255,0.5);
+	text-align: center;
+}
+
+form {
+	background:rgba(255,255,255,0.4);
+	width:100%;
+	max-width: 430px;
+	padding: 20px;
+	border-radius: 4px;
+	position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    margin-top: 10px;
+    padding-bottom: 5px;
+}
+
+input[type="text"] {
+	height: 25px;
+	border-radius: 5px;
+	border-width: 1px;
+	border-style: solid;
+}
+
+input[type="password"] {
+	height: 25px;
+	border-radius: 5px;
+	border-width: 1px;
+	border-style: solid;
+}
+
+#title {
+	padding-right: 30px;
+	padding-bottom: 7px;	
+}
+
+input[value="중복확인"] {
+	border: 0;
+	background-color: rgba(23,171,238,0.3);
+	color: white;
+	width: 60px;
+    height: 25px;
+    padding-bottom: 2px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+input[value="가입"] {
+	border: 0;
+	background-color: #00AFFF;
+	color: white;
+	width: 40px;
+    height: 27px;
+    padding-bottom: 2px;
+    text-align: center;
+	text-decoration-color: white;
+	border-radius: 5px;
+	margin-left: 75%;
+}
+
+input[value="취소"] {
+	border: 0;
+	background-color: #5ACCFF;
+	color: white;
+	width: 40px;
+    height: 27px;
+    padding-bottom: 2px;
+    text-align: center;
+	text-decoration-color: white;
+	border-radius: 5px;
+	float: right;
+}
+
+.bottom-footer{
+	border-top: 1px solid rgba(255,255,255,0.5); 
+	text-align: center;
+    padding: 10px 10px;
+}
+
+</style>
 </head>
+
 <body>
 	<div id="wrapper">
 		<div class="skipToContent">
@@ -81,8 +191,7 @@
 								<li><a href="sogae_1">클래스 소개</a></li>
 								<li><a href="sogae_2">교수님 소개</a></li>
 								<li><a href="sogae_3">센터 소개</a></li>
-								<li><a href="sogae_4">기수 연혁</a></li>
-								<li><a href="sogae_5">프로젝트 소개</a></li>
+								<li><a href="sogae_4">프로젝트 소개</a></li>
 							</ul>
 						</div>
 					</li>
@@ -91,8 +200,6 @@
 							<ul>
 								<li><a href="haksoup_1">프로젝트 소개</a></li>
 								<li><a href="haksoup_2">코드 공유</a></li>
-								<li><a href="haksoup_3">페이지 및 자료 공유</a></li>
-								<li><a href="haksoup_4">캐글 분석</a></li>
 							</ul>
 						</div>
 					</li>
@@ -108,8 +215,8 @@
 					<li class="m4"><a href="study_1">클래스 스터디</a>
 						<div class="submenu">
 							<ul>
-								<li><a href="study_1">교수진</a></li>
-								<li><a href="study_2">직원</a></li>
+								<li><a href="study_1">JAVA</a></li>
+								<li><a href="study_2">PYTHON</a></li>
 							</ul>
 						</div>
 					</li>
@@ -117,8 +224,6 @@
 						<div class="submenu">
 							<ul>
 								<li><a href="manage_1">공지</a></li>
-								<li><a href="manage_2">건의</a></li>
-								<li><a href="manage_3">질문</a></li>
 								<li><a href="manage_4">문의 Q&amp;A</a></li>
 							</ul>
 						</div>
@@ -143,67 +248,69 @@
 				<div class="con_area" style = "margin-left : 300px;">
 				<form method="post" action="join" name="userInfo" onsubmit="return checkValue()">
 					<h2>
-						<span class="entypo-login"><i class="fa fa-sign-in"></i></span>
 						회원가입
 					</h2>
+					
 					<table>
-						<tr>
+						<tr> 
 							<td id="title">아이디</td>
 							<td>
-								<input type="text" name="id" maxlength="50">
-								<input type="button" value="중복확인" onclick="">	
+								<input type="text" name="id" maxlength="50" style="margin-bottom: 10px" >
+								<input type="button" value="중복확인" onclick="" style="margin-left: 5px">	
 							</td>
 						</tr>
 								
 						<tr>
 							<td id="title">비밀번호</td>
 							<td>
-								<input type="password" name="password" maxlength="50">
+								<input type="password" name="password" maxlength="50" style="margin-bottom: 10px">
 							</td>
 						</tr>
 						
 						<tr>
 							<td id="title">비밀번호 확인</td>
 							<td>
-								<input type="password" name="passwordcheck" maxlength="50">
+								<input type="password" name="passwordcheck" maxlength="50" style="margin-bottom: 10px">
 							</td>
 						</tr>
 							
 						<tr>
-							<td id="title">이름</td>
+							<td id="title">이름 </td>
 							<td>
-								<input type="text" name="name" maxlength="50">
+								<input type="text" name="name" maxlength="50" style="margin-bottom: 10px">
 							</td>
 						</tr>
 						<tr>
 							<td id="title">별명</td>
 							<td>
-								<input type="text" name="nick" maxlength="50">
+								<input type="text" name="nick" maxlength="50" style="margin-bottom: 10px">
 							</td>
 						</tr>
 			
 						<tr>
 							<td id="title">전화번호</td>
 							<td>
-								<input type="text" name="tel" />
+								<input type="text" name="tel" style="margin-bottom: 10px">
 							</td>
 						</tr>
 							
 						<tr>
 							<td id="title">이메일</td>
 							<td>
-								<input type="text" name="email" maxlength="50">@
-								<select name="email">
+								<input type="text" name="email" maxlength="50"> @
+								<select name="email" style="height: 26px; border-radius: 5px; margin-bottom: 10px">
 									<option>naver.com</option>
 									<option>daum.net</option>
 									<option>gmail.com</option>				
 								</select>
 							</td>
 						</tr>
-						
 					</table>
 					<br>
-					<input type="submit" value="가입"/>  <input type="button" value="취소">
+					<div class="bottom-footer">
+					<input type="submit" value="가입" />  <input type="button" value="취소">
+					</div>
+					<br>
 				</form>
 			</div>
 			</div>
