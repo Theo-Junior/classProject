@@ -5,4 +5,5 @@ import com.classproject.testServer.model.CentralLogin;
 public interface CentralLoginDAO {
     public boolean loginCheckID(CentralLogin centrallogin);
     public boolean loginCheckPW(CentralLogin centrallogin);
+    public int loginmembercode(CentralLogin centrallogin);
 }

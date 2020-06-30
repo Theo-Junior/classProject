@@ -9,7 +9,10 @@ public class CentralBoardlist {
 //		this.board_code = board_code;
 //	}
     
-    // Setter
+	// Setter
+	public void setBoard_code(int board_code){
+		this.board_code = board_code;
+	}
 	public void setBoard_name(String board_name) {
 		this.board_name = board_name;
 	}

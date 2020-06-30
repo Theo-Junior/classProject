@@ -25,4 +25,8 @@ public class CentralLoginServiceimpl implements CentralLoginService{
 		boolean result=centrallogindao.loginCheckPW(centallogin);
 		return result;
 	}
+	public int loginmembercode(CentralLogin centrallogin){
+		int result=centrallogindao.loginmembercode(centrallogin);
+		return result;
+	}
 }

@@ -32,4 +32,8 @@ public class CentralLoginDAOimpl implements CentralLoginDAO {
 			return pw.equals(centrallogin.getlogin_password());
 		}
 	}
+	public int loginmembercode(CentralLogin centrallogin){
+		int code=sqlSession.selectOne("Login.loginmembercode",centrallogin);
+		return code;
+	}
 }

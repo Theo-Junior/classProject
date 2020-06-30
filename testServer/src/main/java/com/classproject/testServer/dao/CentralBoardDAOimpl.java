@@ -24,8 +24,8 @@ public class CentralBoardDAOimpl implements CentralBoardDAO{
 	}
 
 	@Override
-	public List<CentralBoard> selectWriteList() throws Exception {
-		return sqlSession.selectList("com.classproject.testServer.dao.CentralBoardDAO.selectWriteList");
+	public List<CentralBoard> selectWriteList(int board_code) throws Exception {
+		return sqlSession.selectList("com.classproject.testServer.dao.CentralBoardDAO.selectWriteList",board_code);
 	}
 
 	@Override
@@ -43,5 +43,8 @@ public class CentralBoardDAOimpl implements CentralBoardDAO{
 	public void deleteWrite(int bid) throws Exception {
 		sqlSession.delete("com.classproject.testServer.dao.CentralBoardDAO.deleteWrite", bid);
 		
+	}
+	public int selectMCByCode(int cd) throws Exception{
+		return sqlSession.selectOne("com.classproject.testServer.dao.CentralBoardDAO.selectMCByCode",cd);
 	}
 }

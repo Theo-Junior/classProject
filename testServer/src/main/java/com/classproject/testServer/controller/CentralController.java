@@ -26,6 +26,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 
@@ -41,6 +42,11 @@ public class CentralController {
     CentralBoardDAO centralboarddao;
     @Autowired
     CentralLoginService centralloginservice;
+
+    @Autowired
+    CentralBoardListDAO centralboardlistdao;
+    @Autowired
+    CentralCommentDAO centralcommentdao;
 
     @RequestMapping(value="/")
     public String index(Locale locale, Model model) {
@@ -107,14 +113,30 @@ public class CentralController {
          return "sogae_5";
      }
     //학습페이지
-     @RequestMapping(value="/haksoup_1") 
-    public String haksoup_1() {
+    @RequestMapping(value="/haksoup_1") 
+    public String haksoup_1(Model model)throws Exception {
         logger.info("Access haksoup_1 Page");
+        CentralBoard centralboard = new  CentralBoard();
+        centralboard.setBoard_code(1);
+
+        CentralBoardlist centralboardlist = new CentralBoardlist();
+        centralboardlist.setBoard_code(1);
+
+        model.addAttribute("Boardcode", centralboardlistdao.selectBoardByCode(1));
+        model.addAttribute("Boardlist", centralboarddao.selectWriteList(1));
         return "haksoup_1";
     }
      @RequestMapping(value="/haksoup_2") 
-    public String haksoup_2() {
+    public String haksoup_2(Model model)throws Exception {
         logger.info("Access haksoup_2 Page");
+        CentralBoard centralboard = new  CentralBoard();
+        centralboard.setBoard_code(2);
+
+        CentralBoardlist centralboardlist = new CentralBoardlist();
+        centralboardlist.setBoard_code(2);
+
+        model.addAttribute("Boardcode", centralboardlistdao.selectBoardByCode(2));
+        model.addAttribute("Boardlist", centralboarddao.selectWriteList(2));
         return "haksoup_2";
     }
      @RequestMapping(value="/haksoup_3") 
@@ -158,30 +180,44 @@ public class CentralController {
     @RequestMapping(value="/manage_1") //게시판 테스트로 만든 controller 메소드======
     public String manage_1(Model model)throws Exception {
         logger.info("Access manage_1 Page");
-        model.addAttribute("Boardlist", centralboarddao.selectWriteList());
+
+        CentralBoard centralboard = new  CentralBoard();
+        centralboard.setBoard_code(3);
+
+        CentralBoardlist centralboardlist = new CentralBoardlist();
+        centralboardlist.setBoard_code(3);
+
+        model.addAttribute("Boardcode", centralboardlistdao.selectBoardByCode(3));
+        model.addAttribute("Boardlist", centralboarddao.selectWriteList(3));
+        
         return "manage_1";
     }
 
 
-     @RequestMapping(value="/manage_2") 
-    public String manage_2() {
-        logger.info("Access manage_2 Page");
-        return "manage_2";
-    }
-     @RequestMapping(value="/manage_3") 
-    public String manage_3() {
-        logger.info("Access manage_3 Page");
-        return "manage_3";
-    }
-     @RequestMapping(value="/manage_4") 
-    public String manage_4() {
+    @RequestMapping(value="/manage_4") 
+    public String manage_4(Model model)throws Exception {
         logger.info("Access manage_4 Page");
+        CentralBoard centralboard = new  CentralBoard();
+        centralboard.setBoard_code(4);
+
+        CentralBoardlist centralboardlist = new CentralBoardlist();
+        centralboardlist.setBoard_code(4);
+
+        model.addAttribute("Boardcode", centralboardlistdao.selectBoardByCode(4));
+        model.addAttribute("Boardlist", centralboarddao.selectWriteList(4));
         return "manage_4";
     }
     //게시판 ======
     @RequestMapping(value="board_content") //글 자세히 보기 manage_1page에 있는 글제목을 클릭시 글 내용을 볼수 있음
-    public String board_content(Model model,@RequestParam("write_code")int write_code)throws Exception {
+    public String board_content(Model model,@RequestParam("write_code")int write_code,HttpServletRequest request) throws Exception {
+
+        
+
         model.addAttribute("Boardlist", centralboarddao.selectWriteByCode(write_code));
+        model.addAttribute("Commentlist", centralcommentdao.selectCommentList(write_code));
+        String MC = Integer.toString(centralboarddao.selectMCByCode(write_code));
+        HttpSession session = request.getSession();
+        session.setAttribute("MC", MC);
         logger.info("Access board_content Page");
         return "board_content";
     }
@@ -193,9 +229,11 @@ public class CentralController {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd/HH:mm:ss");
         String datestr = sdf.format(cal.getTime());
 
-        centralboard.setBoard_code(1);
+        centralboard.setBoard_code(Integer.parseInt(request.getParameter("board_code")));
         //insert 게시판에 따라서 페이지별 게시판 고유 값을 받아야 하지만 정해진게 없어서 추후 업데이트하는게 좋을듯
-        centralboard.setMember_code(100);
+        HttpSession session=request.getSession();
+        int code= Integer.parseInt((String)session.getAttribute("CODE"));
+        centralboard.setMember_code(code);
         // Integer.parseInt(request.getParameter("password"))
         // 로그인 유지 상태에서 로그인자의 정보중 member_code를 받아와야 하지만 현재 로그인 섹션유지 불가로 현재있는 코드인 100으로 고정
         centralboard.setWrite_content(request.getParameter("write_content"));
@@ -204,24 +242,38 @@ public class CentralController {
         //날자를 jsp에서 받아와서 String타입으로 변환해야하는 어려움있음
        
         centralboarddao.insertWrite(centralboard);
-
-        return "redirect:/manage_1"; // 입력이 다되면 원래페이지로 이동 이것도 고유 값을 받는게 좋을듯
+        int codenume = Integer.parseInt(request.getParameter("board_code"));
+        String url="";
+        switch(codenume){
+            case 1 : url = "haksoup_1";
+                    break;
+            case 2 : url = "haksoup_2";
+                    break;
+            case 3 : url = "manage_1";
+                    break;
+            case 4 : url = "manage_4";
+                    break;
+        }
+        logger.info(url);
+        return "redirect:"+ url; // 입력이 다되면 원래페이지로 이동 이것도 고유 값을 받는게 좋을듯
     }
     @RequestMapping("boardwrite") //
-        public String boardWrite() {
+    public String boardwrite(Model model,@RequestParam("board_code")int board_code) throws Exception {
+        CentralBoardlist centralboardlist = new CentralBoardlist();
+        centralboardlist.setBoard_code(board_code);
+        model.addAttribute("Boardcode", centralboardlistdao.selectBoardByCode(board_code));
         return "boardwrite";
     }
     
     @RequestMapping("board_commit") //board uapte_commmit 하는 부분
     public String board_update(HttpServletRequest request)throws Exception {
         CentralBoard centralboard = new CentralBoard();
-
-        centralboard.setBoard_code(1); 
+        HttpSession session=request.getSession();
+        int code= Integer.parseInt((String)session.getAttribute("CODE"));
         centralboard.setWrite_code(Integer.parseInt(request.getParameter("write_code")));
-        centralboard.setMember_code(100);
+        centralboard.setMember_code(code);
         centralboard.setWrite_content(request.getParameter("write_content"));
         centralboard.setWrite_title(request.getParameter("write_title"));
-        centralboard.setWrite_date("2020-06-24");
        
         centralboarddao.updateWrite(centralboard);
         return "redirect:/board_content?write_code="+ centralboard.getWrite_code();
@@ -231,6 +283,34 @@ public class CentralController {
         model.addAttribute("Boardlist", centralboarddao.selectWriteByCode(write_code));
         return "board_update";
     }
+    @RequestMapping("comment_insert") //게시판 입력
+    public String commet_insert(HttpServletRequest request,RedirectAttributes redirectAttributes) throws Exception {
+        //RedirectAttributes :이전페이지로 돌아가기 위함
+        CentralComment centralcomment = new CentralComment();
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd/HH:mm:ss");
+        String datestr = sdf.format(cal.getTime());
+        
+        HttpSession session=request.getSession();
+        int code= Integer.parseInt((String)session.getAttribute("CODE"));
+
+         //???
+        //insert 게시판에 따라서 페이지별 게시판 고유 값을 받아야 하지만 정해진게 없어서 추후 업데이트하는게 좋을듯
+        centralcomment.setMember_code(code);
+        // Integer.parseInt(request.getParameter("member_code")) 후에 member코드 구현할때
+        // 로그인 유지 상태에서 로그인자의 정보중 member_code를 받아와야 하지만 현재 로그인 섹션유지 불가로 현재있는 코드인 100으로 고정
+        centralcomment.setWrite_code(Integer.parseInt(request.getParameter("write_code")));
+        centralcomment.setComment_write(request.getParameter("comment_write"));
+        centralcomment.setComment_date(datestr);
+        //날자를 jsp에서 받아와서 String타입으로 변환해야하는 어려움있음
+    
+        centralcommentdao.insertComment(centralcomment);
+        String url=request.getParameter("write_code");
+        logger.info(url);
+        return "redirect:/board_content?write_code="+ url; // 입력이 다되면 원래페이지로 이동 이것도 고유 값을 받는게 좋을듯
+        //이것도 다시 원래 페이지로 가야함
+    }
+
     //로그인 ====
     @RequestMapping(value="/loginform") 
     public String login() {
@@ -288,17 +368,23 @@ public class CentralController {
         final String password= request.getParameter("password");
         //로그인 정보 저장
         final CentralLogin centrallogin =new CentralLogin();
+        CentralMember centralmember=new CentralMember();
         centrallogin.setlogin_id(request.getParameter("id")); 
         centrallogin.setlogin_password(request.getParameter("password"));
         final HttpSession session=request.getSession();
-        final boolean idcheck= centralloginservice.loginCheckID(centrallogin);
+        final boolean idcheck=centralloginservice.loginCheckID(centrallogin);
         final boolean pwcheck=centralloginservice.loginCheckPW(centrallogin);
+    
+
         logger.info(id+" "+password);
         if(idcheck){
             if(pwcheck){
+                String code= Integer.toString(centralloginservice.loginmembercode(centrallogin));
                 //세션 생성
                 session.setAttribute("ID", id);
                 session.setAttribute("PASSWORD", password);
+                session.setAttribute("CODE", code);
+                
                 // 세션 동작 확인
                 logger.info(id+" "+password);
                 logger.info("return to main Page");

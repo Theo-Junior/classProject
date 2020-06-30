@@ -24,13 +24,13 @@ public class CentralCommentDAOimpl implements CentralCommentDAO{
 	}
 
 	@Override
-	public List<CentralComment> selectCommentList() throws Exception {
-		return sqlSession.selectList("com.classproject.testServer.dao.CentralCommentDAO.selectCommentList");
+	public List<CentralComment> selectCommentList(int bic) throws Exception {
+		return sqlSession.selectList("com.classproject.testServer.dao.CentralCommentDAO.selectCommentList",bic);
 	}
 
 	@Override
 	public CentralComment selectCommentByCode(int bid) throws Exception {
-		return sqlSession.selectOne("com.classproject.testServer.dao.CentralCommentDAO.selectCommentByCode");
+		return sqlSession.selectOne("com.classproject.testServer.dao.CentralCommentDAO.selectCommentByCode",bid);
 	}
 
 	@Override
