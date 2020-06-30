@@ -14,9 +14,12 @@
     </select>
 
     <select id="selectWriteList" resultType="com.classproject.testServer.model.CentralBoard">
-        select * from [dbo].[board]
+        select * from [dbo].[board] where board_code=#{board_code}
     </select>
     
+    <select id="selectMCByCode" parameterType="int" resultType="int">
+        select member_code from [dbo].[board] where write_code=#{write_code}
+    </select>
     <!-- 
         여기에서 보면 insertWrite 메소드를 정의해준다. 아래 SQL 구문으로 MS SQL-Server에 접근해서 데이터를 처리한다.
         이과정이 완료되면 다시 컨트롤러로 돌아간다. Controller로 돌아가보자.

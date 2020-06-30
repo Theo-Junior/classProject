@@ -8,4 +8,7 @@
     <select id="loginCheckPW" parameterType="String" resultType="String">
       select member_pw from [dbo].[member] where member_id=#{login_id}
     </select>
+    <select id="loginmembercode" parameterType="String" resultType="int">
+      select member_code from [dbo].[member] where member_id=#{login_id}
+    </select>
 </mapper>

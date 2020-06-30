@@ -5,22 +5,22 @@
 
 <mapper namespace="com.classproject.testServer.dao.CentralCommentDAO">
 	<select id="selectCommentByCode" parameterType="int" resultType="com.classproject.testServer.model.CentralComment">
-        select * from [dbo].[Comment] where comment_code=#{comment_code}
+        select * from [dbo].[comment] where comment_code=#{comment_code}
     </select>
 
     <select id="selectCommentList" resultType="com.classproject.testServer.model.CentralComment">
-        select * from [dbo].[Comment] where write_code=#{write_code}
+        select * from [dbo].[comment] where write_code=#{write_code}
     </select>
     <insert id="insertComment">
-        insert into [dbo].[Comment](comment_code, write_code, member_code, comment_date, comment_write) values (#{comment_code}, #{write_code}, #{member_code}, #{comment_date}, #{comment_write})
+        insert into [dbo].[comment](write_code, member_code, comment_date, comment_write) values (#{write_code}, #{member_code}, #{comment_date}, #{comment_write})
     </insert>
     
     <update id="updateComment" parameterType="com.classproject.testServer.model.CentralComment">
-        update [dbo].[Comment] set comment_date=#{comment_date}, comment_write=#{comment_write} where comment_code=#{comment_code}
+        update [dbo].[comment] set comment_date=#{comment_date}, comment_write=#{comment_write} where comment_code=#{comment_code}
     </update>
 
     <delete id="deleteComment" parameterType="int">
-        delete from [dbo].[Comment] where comment_code=#{comment_code}
+        delete from [dbo].[comment] where comment_code=#{comment_code}
     </delete>
 
 </mapper>
