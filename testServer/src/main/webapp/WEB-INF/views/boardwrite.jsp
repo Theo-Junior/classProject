@@ -148,12 +148,11 @@ $(document).ready(function() {
 
 		<div style="width: 707px; margin: auto;">
 			<form method="post" action="boardinsert">
-				<input type="text" name="board_code" style="width: 20%; padding: 3px;" placeholder="board_code"/>
-				<br><br>
-				<input type="text" name="write_title" style="width: 40%; padding: 3px;" placeholder="제목"/>
+				<input type="hidden" name="board_code" value="${Boardcode.board_code}"/><br>
+				<!-- ${Board.board_code} -->
+				<input type="text" name="write_title" style="width: 40%;" placeholder="제목"/>
 				<br><br> 
 				<textarea id="summernote" name="write_content"></textarea>
-				<br>
 				<input type="submit" style="padding: 1px;" value="작성"/>
 			</form>
 		</div>

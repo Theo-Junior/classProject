@@ -26,7 +26,10 @@
 		<div id="header">
 			<div id="header_content">
 				<h1 class="logo"><a href="main"><img src="img/logo.png", width="150" alt="빅데이터반" /></a></h1>
-				<%String sessionID=(String)session.getAttribute("ID"); if(sessionID==null){%>
+				<%String sessionID=(String)session.getAttribute("ID"); 
+				 String sessionCode=(String)session.getAttribute("CODE");
+				 String sessionMC = (String)session.getAttribute("MC");
+				if(sessionID==null){%>
 					<div class="top_menu">
 						<ul>
 							<li><a href="login">LOGIN</a></li>
@@ -138,7 +141,7 @@ jQuery('#gnb').gnb({ d1: 0, d2: 0 });
 					</tr>
 					<tr>
 						<td style = "width: 15%;">작성자</td>
-						<td colspan="2" style="width: 85%; height:30px; background-color: #eeeeee;">${Boardlist.write_code}</td>
+						<td colspan="2" style="width: 85%; height:30px; background-color: #eeeeee;">${Boardlist.member_code}</td>
 						
 					</tr>
 					<tr>
@@ -147,10 +150,60 @@ jQuery('#gnb').gnb({ d1: 0, d2: 0 });
 					</tr>
 				</table>
 					<input type="button" value="글 목록" style="float: left;" onclick="location.href='manage_1';">
-					<input type="button" value="수정하기" style="float: left;" onclick="location.href='board_update?write_code=${Boardlist.write_code}';"> 
+					<%=sessionCode%><%=sessionMC%>
+				<%if(sessionMC.equals(sessionCode)){%>
+
+					<input type="button" value="수정하기" style="float: left;" onclick="location.href='board_update?write_code=${Boardlist.write_code}';">
+				<%}%>	
 			</div>
+			<!--댓글-->
+			<br><br>
+	<h3>댓글</h3>
+	<div style="width: 60%; margin: auto;">
+		<form method="post" action="comment_insert">
+			<input type="hidden" name="write_code" value="${Boardlist.write_code}"/><br>
+			<input type="text" name="comment_write" style="height: 40px; display: inline-block" placeholder="내용"/>
+
+			<input type="submit" value="작성"/>
+		</form>
+	</div>
+	<br><br>
+	<div class="container">
+		<div class="row">
+			<table class="table table-striped"
+
+				style="text-align: center; border: 1px solid #dddddd">
+
+				<thead>
+
+					<tr>
+
+						<th style="background-color: #eeeeee; text-align: center;">번호</th>
+						<th style="background-color: #eeeeee; text-align: center;">작성자</th>
+						<th style="background-color: #eeeeee; text-align: center;">내용</th>
+						<th style="background-color: #eeeeee; text-align: center;">날자</th>
+					</tr>
+
+				</thead>
+
+
+				<tbody>
+					<c:forEach items="${Commentlist}" var="Commentlist">
+						<tr>	
+								<td>${Commentlist.comment_code}</td>
+								<!--detail?seq : 서택한 item.wite_code를 넘겨줘서 controller에서 받음-->
+								<td>${Commentlist.member_code}</td>
+								<td>${Commentlist.comment_write}</td>
+								<td>${Commentlist.comment_date}</td>
+							</tr>
+					</c:forEach>
+				</tbody>
+			</table>
 		</div>
 	</div>
+		</div>
+	</div>
+	
 
 <div id="footer">
 	<h2 class="hide">하단영역</h2>

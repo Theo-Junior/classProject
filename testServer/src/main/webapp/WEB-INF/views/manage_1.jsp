@@ -177,7 +177,7 @@
 										</td>
 									</tr>
 								</table>
-								<input type="button" value="글 쓰기" style="float: right;" onclick="location.href='boardwrite';">
+								<input type="button" value="글 쓰기" style="float: right;" onclick="location.href='boardwrite?board_code=${Boardcode.board_code}';">
 								</tfoot>
 							</table>
 				</b></p> 

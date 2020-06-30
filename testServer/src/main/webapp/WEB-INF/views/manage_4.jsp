@@ -1,5 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" %>
+<%@page import="javax.security.auth.callback.ConfirmationCallback"%>
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
+		pageEncoding="UTF-8"%>
+    <%@ page import="java.io.PrintWriter"%>
+    <%@ page import="com.classproject.testServer.dao.*"%>
+    <%@ page import="com.classproject.testServer.model.*"%>
+	<%@ page import="java.util.ArrayList"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
 <head>
@@ -126,7 +133,68 @@
 				<div class="title">문의 Q&amp;A<br><div class="txt">문의 Q&amp;A 입력폼 위치<br>
                     
                 <p>&nbsp;</p>
-                <p><b>여기에 입력폼 삽입</b></p> 
+                <p><b>
+					<div class="con_area">
+						<class table width="100%" cellpadding=0 cellspacing=0 >
+						<td valign=top colspan=2>
+						<div class="title">공지<br><div class="txt">공지사항 게시판 위치<br>
+							
+						<p>&nbsp;</p>
+						<p><b>
+									<table>
+										<thead>
+											<tr>
+					
+												<th width=100 style="background-color: #3f48cc; text-align: center; color: #eeeeee;">번호</th>
+												<th style="background-color: #3f48cc; text-align: center;  color: #eeeeee;">제목</th>
+												<th width=100 style="background-color: #3f48cc; text-align: center;  color: #eeeeee;">작성자</th>
+												<th width=166 style="background-color: #3f48cc; text-align: center;  color: #eeeeee;">작성일</th>
+			
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td width=707 height=1 colspan="4"></td>
+											</tr>
+											<c:forEach items="${Boardlist}" var="item">
+											<tr>	
+												<td style="background-color: #eeeeee; text-align: center;">${item.write_code}</td>
+												<!--detail?seq : 서택한 item.wite_code를 넘겨줘서 controller에서 받음-->
+												<td style="background-color: #eeeeee; text-align: center;"><a href = "board_content?write_code=${item.write_code}">${item.write_title}</a></td>
+												<td style="background-color: #eeeeee; text-align: center;">${item.member_code}</td>
+												<td style="background-color: #eeeeee; text-align: center;" >${item.write_date}</td>
+											</tr>
+											<tr>
+												<td width=707 height=1 colspan="4"></td>
+											</tr>
+											</c:forEach>
+										</tbody>
+										<tfoot>
+											<tr></tr>
+											<tr>
+												<td colspan="4" style="text-align: center;">
+													<img src="images/common/page_Btn_01.jpg" class="page_first"/> 
+													<img src="images/common/page_Btn_02.jpg" class="page_prev"/> 
+													<strong class="sel_page_num" style="color: #3f48cc;">1</strong> 
+													<a href="/index.php?pg=2&page=list&hCode=BOARD&bo_idx=3&sfl=&stx=" class="page_num">2</a> 
+													<a href="/index.php?pg=3&page=list&hCode=BOARD&bo_idx=3&sfl=&stx=" class="page_num">3</a> 
+													<a href="/index.php?pg=4&page=list&hCode=BOARD&bo_idx=3&sfl=&stx=" class="page_num">4</a> 
+													<a href="/index.php?pg=5&page=list&hCode=BOARD&bo_idx=3&sfl=&stx=" class="page_num">5</a> 
+													<a href="/index.php?pg=2&page=list&hCode=BOARD&bo_idx=3&sfl=&stx="><img src="images/common/page_Btn_03.jpg" class="page_next"/></a> 
+													<a href="/index.php?pg=5&page=list&hCode=BOARD&bo_idx=3&sfl=&stx="><img src="images/common/page_Btn_04.jpg" class="page_last"/></a>
+												</td>
+											</tr>
+										</table>
+										<input type="button" value="글 쓰기" style="float: right;" onclick="location.href='boardwrite?board_code=${Boardcode.board_code}';">
+										</tfoot>
+									</table>
+						</b></p> 
+						</div>
+						</div>
+						</td>	
+						</table>
+			</div>
+				</b></p> 
                 </div>
                 </div>
         
