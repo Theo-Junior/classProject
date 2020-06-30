@@ -108,8 +108,8 @@
 	</div>
 	<ul class="left_lst">
 		<!--style='color:#7d0101; font-weight:600; background:url(/images/menu/menu_on.gif) 0 0 no-repeat;'-->
-		<li><a href="haksoup_1" style='color:#281555; font-weight:600; background:url(img/menu_on.gif) 0 0 no-repeat;'>데싸 결과물</a></li>
-		<li><a href="haksoup_2">주제 문의</a></li>
+		<li><a href="bunsuk_1" style='color:#281555; font-weight:600; background:url(img/menu_on.gif) 0 0 no-repeat;'>데싸 결과물</a></li>
+		<li><a href="bunsuk_2">주제 문의</a></li>
 	</ul>
 </div><!-- content //S-->
 <div id="content">

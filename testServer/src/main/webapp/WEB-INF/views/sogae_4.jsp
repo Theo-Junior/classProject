@@ -94,9 +94,9 @@
 			</script> -->
 		</div>
                 
-		<div id="subvisual">
-	<img src="img/subvisual.jpg" alt="" />
-</div>
+		<div id="sub">
+			<img src="img/sub.gif" alt="" />
+		</div>
 		<div id="container_wrap">
 			<!-- container //S-->
 			<div id="container">

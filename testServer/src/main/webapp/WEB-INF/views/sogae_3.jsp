@@ -124,8 +124,7 @@
     	<!-- con_area //S-->
 	<div class="con_area">
 				<table width="100%" cellpadding=0 cellspacing=0 >
-				<td valign=top colspan=2>
-				<!--<div class="title"> 센터 정보 <br><br>-->
+
 				<div class="advCont" id="ContMT">
 						<div class="section">
 							<div class="in">
