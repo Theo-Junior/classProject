@@ -154,7 +154,7 @@
 			<textarea id="summernote" value = "${Boardlist.write_content}" name="write_content"></textarea>
 			<input type="hidden" name="write_code" value="${Boardlist.write_code}">
 			<br>
-			<input type="submit" class="btn btn-dark" style="float: right;" value="수정"/>
+			<input type="submit" class="btn btn-dark" style="float: right;" value="수정"/>&nbsp;
 			<input type="reset" class="btn btn-dark" style="float: right; margin-right: 5px;" value="초기화" />
 		</form>
 	</div>

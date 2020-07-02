@@ -150,9 +150,9 @@ jQuery('#gnb').gnb({ d1: 0, d2: 0 });
 					</tr>
 				</table>
 				<p>&nbsp;</p>
-					<input type="button" value="글 목록" style="float: right;" onclick="location.href='manage_1';">
-					<%=sessionCode%><%=sessionMC%><%if(sessionMC.equals(sessionCode)){%>
-					<input type="button" value="수정하기" style="float: right;" onclick="location.href='board_update?write_code=${Boardlist.write_code}';">
+					<input type="button" value="글 목록" style="float: right; margin-left:5px;" onclick="location.href='manage_1';">
+					<%if(sessionMC.equals(sessionCode)){%>
+					<input type="button" value="수정하기" style="float: right;" onclick="location.href='board_update?write_code=${Boardlist.write_code}';"> 
 					<%}%>	
 			</div> <!--outer-->
 			

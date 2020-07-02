@@ -145,4 +145,5 @@ input[value="로그아웃"] {border: 0; background-color: #97a7ff;color: white;w
 /* button */
 input[value="글 쓰기"] {border: 0;background-color: #97a7ff;color: white;width: 60px;height: 27px;padding-bottom: 2px;text-align: center;text-decoration-color: white;border-radius: 5px;float: right;}
 input[value="글 목록"] {border: 0;background-color: #97a7ff;color: white;width: 60px;height: 27px;padding-bottom: 2px;text-align: center;text-decoration-color: white;border-radius: 5px;float: right;}
+input[value="수정하기"] {border: 0;background-color: #97a7ff;color: white;width: 60px;height: 27px;padding-bottom: 2px;text-align: center;text-decoration-color: white;border-radius: 5px;float: right;}
 input[value="작성"] {border: 0;background-color: #97a7ff;color: white;width: 50px;height: 27px;padding-bottom: 2px;text-align: center;text-decoration-color: white;	border-radius: 5px;	float: right;}

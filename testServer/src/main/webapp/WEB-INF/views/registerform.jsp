@@ -190,7 +190,6 @@ input[value="취소"] {
 					</div>
 				<%}%>				
 			</div>
-			</div>
 			<!-- gnb//S-->
 			<div id="gnb">
 				<ul>
