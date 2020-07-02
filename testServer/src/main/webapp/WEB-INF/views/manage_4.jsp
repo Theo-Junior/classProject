@@ -40,7 +40,7 @@
 				<%}else{%>
 					<div class="top_menu">
 						<ul>
-							<li><font size = "2em">"<%=sessionID%>"님 환영합니다</font></li>
+							<li><font size = "2em">"<%=sessionID%>"님 환영합니다</font><input type="button" value="로그아웃" id = "logout" onclick="" style="margin-left: 5px"></li>
 						</ul>
 					</div>
 				<%}%>				
@@ -128,212 +128,100 @@
     
     <!-- con_area //S-->
 	<div class="con_area">
-				<table width="100%" cellpadding=0 cellspacing=0 >
-				<td valign=top colspan=2>
-				<div class="title">문의 Q&amp;A<br><div class="txt">문의 Q&amp;A 입력폼 위치<br>
-                    
-                <p>&nbsp;</p>
-                <p><b>
-					<div class="con_area">
-						<class table width="100%" cellpadding=0 cellspacing=0 >
-						<td valign=top colspan=2>
-						<div class="title">공지<br><div class="txt">공지사항 게시판 위치<br>
-							
-						<p>&nbsp;</p>
-						<p><b>
-									<table>
-										<thead>
-											<tr>
-					
-												<th width=100 style="background-color: #3f48cc; text-align: center; color: #eeeeee;">번호</th>
-												<th style="background-color: #3f48cc; text-align: center;  color: #eeeeee;">제목</th>
-												<th width=100 style="background-color: #3f48cc; text-align: center;  color: #eeeeee;">작성자</th>
-												<th width=166 style="background-color: #3f48cc; text-align: center;  color: #eeeeee;">작성일</th>
+		<class table width="100%" cellpadding=0 cellspacing=0 >
+		<td valign=top colspan=2>
+		<div class="title">공지<div class="txt">
 			
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td width=707 height=1 colspan="4"></td>
-											</tr>
-											<c:forEach items="${Boardlist}" var="item">
-											<tr>	
-												<td style="background-color: #eeeeee; text-align: center;">${item.write_code}</td>
-												<!--detail?seq : 서택한 item.wite_code를 넘겨줘서 controller에서 받음-->
-												<td style="background-color: #eeeeee; text-align: center;"><a href = "board_content?write_code=${item.write_code}">${item.write_title}</a></td>
-												<td style="background-color: #eeeeee; text-align: center;">${item.member_code}</td>
-												<td style="background-color: #eeeeee; text-align: center;" >${item.write_date}</td>
-											</tr>
-											<tr>
-												<td width=707 height=1 colspan="4"></td>
-											</tr>
-											</c:forEach>
-										</tbody>
-										<tfoot>
-											<tr></tr>
-											<tr>
-												<td colspan="4" style="text-align: center;">
-													<img src="images/common/page_Btn_01.jpg" class="page_first"/> 
-													<img src="images/common/page_Btn_02.jpg" class="page_prev"/> 
-													<strong class="sel_page_num" style="color: #3f48cc;">1</strong> 
-													<a href="/index.php?pg=2&page=list&hCode=BOARD&bo_idx=3&sfl=&stx=" class="page_num">2</a> 
-													<a href="/index.php?pg=3&page=list&hCode=BOARD&bo_idx=3&sfl=&stx=" class="page_num">3</a> 
-													<a href="/index.php?pg=4&page=list&hCode=BOARD&bo_idx=3&sfl=&stx=" class="page_num">4</a> 
-													<a href="/index.php?pg=5&page=list&hCode=BOARD&bo_idx=3&sfl=&stx=" class="page_num">5</a> 
-													<a href="/index.php?pg=2&page=list&hCode=BOARD&bo_idx=3&sfl=&stx="><img src="images/common/page_Btn_03.jpg" class="page_next"/></a> 
-													<a href="/index.php?pg=5&page=list&hCode=BOARD&bo_idx=3&sfl=&stx="><img src="images/common/page_Btn_04.jpg" class="page_last"/></a>
-												</td>
-											</tr>
-										</table>
-										<input type="button" value="글 쓰기" style="float: right;" onclick="location.href='boardwrite?board_code=${Boardcode.board_code}';">
-										</tfoot>
-									</table>
-						</b></p> 
-						</div>
-						</div>
-						</td>	
-						</table>
-			</div>
-				</b></p> 
-                </div>
-                </div>
-        
+		<p>&nbsp;</p>
+		<p><b>
+					<table>
+						<thead>
+							<tr>
+	
+								<th width=100 style="background-color: #97A7FF; text-align: center; color: #eeeeee;">번호</th>
+								<th style="background-color: #97A7FF; text-align: center;  color: #eeeeee;">제목</th>
+								<th width=100 style="background-color: #97A7FF; text-align: center;  color: #eeeeee;">작성자</th>
+								<th width=166 style="background-color: #97A7FF; text-align: center;  color: #eeeeee;">작성일</th>
 
-    
-<script type="text/javascript" src="smart_editor/js/HuskyEZCreator.js" charset="utf-8"></script>
-<script type="text/javascript" src="js/board.js" charset="utf-8"></script>
-<div id="content">
-	<div class="path">Home &nbsp;&gt;&nbsp; 게시판 &nbsp;&gt;&nbsp; Q&A</div>
-		<div class="sub_title">
-			<h2>Q&A</h2>
-		</div>
-		<div class="con_area">
-<!--MODULE//S-->
-		<div style="background:#efefef; padding:20px; margin:0 0 20px 0;">
-		<p style="font-size:14px; font-weight:600; color:#901018; line-height:18px">* 설명 *<br /> 
-			</p>
-		</div>
-		<form name="form" method="post" action="index.php" enctype="multipart/form-data">
-		<input type="hidden" name="uploadfile"><!-- 첨부된 파일 -->
-		<input type="hidden" name="chk_text_tmp" value="BJWsy9">
-		<input type="hidden" name="hMode" value="insert">
-		<input type="hidden" name="hCode" value="BOARD_PROC">
-		<input type="hidden" name="bo_idx" value="6">
-		<input type="hidden" name="idx" value="0">
-		<input type="hidden" name="return_url" value="/index.php">
-		<input type="hidden" name="bo_html_use" value="Y" />
-		<table id="board_write" class="text_left">
-			<thead>
-				<tr>
-					<th>제목</th>
-					<td >
-						<input type="text" name="title" size=60 class="input" value="">
-					</td>
-				</tr>
-				<tr>
-					<th>이메일</th>
-					<td >
-						<input type="text" name="link_url" size=60 class="input" value="">
-					</td>
-				</tr>
-							
-			</thead>
-			<tbody>
-				<tr>
-					<td colspan="2">
-					<textarea name="ir1" id="ir1" style="width:100%;height:300px"></textarea>
-					</td>
-				</tr>
-			</tbody>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td width=707 height=1 colspan="4"></td>
+							</tr>
+							<c:forEach items="${Boardlist}" var="item">
+							<tr>	
+								<td style="background-color: #f7f8ff; text-align: center;">${item.write_code}</td>
+								<!--detail?seq : 서택한 item.wite_code를 넘겨줘서 controller에서 받음-->
+								<td style="background-color: #f7f8ff; text-align: center;"><a href = "board_content?write_code=${item.write_code}">${item.write_title}</a></td>
+								<td style="background-color: #f7f8ff; text-align: center;">${item.member_code}</td>
+								<td style="background-color: #f7f8ff; text-align: center;" >${item.write_date}</td>
+							</tr>
+							<tr>
+								<td width=707 height=1 colspan="4"></td>
+							</tr>
+							</c:forEach>
+						</tbody>
 						<tfoot>
-				<tr>
-					<th>무단등록방지</th>
-					<td width=540>
-						<dl id="check_text">
-							<dt>BJWsy9</dt>
-							<dd>
-								<input type="text" name="chk_text" size=8 maxlength=50 class="input"> 
-								<font color="red">* 좌측의 6자리 코드를 입력해 주세요.</font>
-							</dd>
-						</dl>
-					</td>
-				</tr>
-			</tfoot>
+							<tr></tr>
+							<tr>
+								<td colspan="4" style="text-align: center;">
+									<img src="images/common/page_Btn_01.jpg" class="page_first"/> 
+									<img src="images/common/page_Btn_02.jpg" class="page_prev"/> 
+									<strong class="sel_page_num" style="color: #3f48cc;">1</strong> 
+									<a href="/index.php?pg=2&page=list&hCode=BOARD&bo_idx=3&sfl=&stx=" class="page_num">2</a> 
+									<a href="/index.php?pg=3&page=list&hCode=BOARD&bo_idx=3&sfl=&stx=" class="page_num">3</a> 
+									<a href="/index.php?pg=4&page=list&hCode=BOARD&bo_idx=3&sfl=&stx=" class="page_num">4</a> 
+									<a href="/index.php?pg=5&page=list&hCode=BOARD&bo_idx=3&sfl=&stx=" class="page_num">5</a> 
+									<a href="/index.php?pg=2&page=list&hCode=BOARD&bo_idx=3&sfl=&stx="><img src="images/common/page_Btn_03.jpg" class="page_next"/></a> 
+									<a href="/index.php?pg=5&page=list&hCode=BOARD&bo_idx=3&sfl=&stx="><img src="images/common/page_Btn_04.jpg" class="page_last"/></a>
+								</td>
+							</tr>
+						</table>
+						<input type="button" value="글 쓰기" style="float: right;" onclick="location.href='boardwrite?board_code=${Boardcode.board_code}';">
+						</tfoot>
 					</table>
-		</form>
-		<table id="default_size">
-			<tr>
-				<td class="text_center">
-				<a href="javascript:boardForm_chk()" rel="pulse-shrink" class="button pulse-shrink">글쓰기</a>					<a href="javascript:history.back();" rel="pulse-shrink" class="button pulse-shrink">취소</a>
-				</td>
-			</tr>
+		</b></p> 
+		</div>
+		</div>
+						
 			
-		</table>
-		<!--MODULE//E-->
-
-<div id="password_Div">
-<form name="password_Form" method="post" action="index.php">
-<input type="hidden" name="hCode" value="BOARD" />
-<input type="hidden" name="page"/>
-<input type="hidden" name="idx"/>
-<input type="hidden" name="bo_idx" value="6"/>
-	<dl>
-		<dt>비밀번호 입력 <a href="javascript:password_close()">X</a></dt>
-		<dd>
-			<span>비밀번호</span>
-			<input type="password" name="bo_password" class="input_mid" style="width:140px"/>
-		</dd>
-		<dd style="text-align:center">
-			<a href="javascript:input_Password()" rel="pulse-shrink" class="button pulse-shrink" style="margin-left:20px;">확인</a>
-		</dd>
-	</dl>
-</form>
-</div>
+        
 
 <!-- contents//E -->
-	</div>
-</div><!-- content//E -->
 
-<script type="text/javascript">
-var oEditors = [];
-function pasteHTML(str) {	
-	//var sHTML = "<span style='color:#FF0000;'>이미지도 같은 방식으로 삽입합니다.<\/span>";
-	oEditors.getById["ir1"].exec("PASTE_HTML", [str]);
-}
-function thum_val(str) {	
-  $('#documentfile').val(str);
-}
-</script><script language="javascript">
-	var oEditors = [];
-	nhn.husky.EZCreator.createInIFrame({
-		oAppRef: oEditors,
-		elPlaceHolder: "ir1",
-		sSkinURI: "smart_editor/SmartEditor2Skin.html",
-		htParams : {
-         bUseToolbar : true,            // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-         bUseVerticalResizer : true,      // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-         bUseModeChanger : true,         // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-         fOnBeforeUnload : function(){
-            //alert("완료!");
-         }
-      }, //boolean
-      fOnAppLoad : function(){
-         //예제 코드
-         //oEditors.getById["kimsa_content"].exec("PASTE_HTML", ["로딩이 완료된 후에 본문에 삽입되는 text입니다."]);
-      },
-      fCreator: "createSEditor2"
-	});
-</script>
-		
+					<script type="text/javascript">
+					var oEditors = [];
+					function pasteHTML(str) {	
+						//var sHTML = "<span style='color:#FF0000;'>이미지도 같은 방식으로 삽입합니다.<\/span>";
+						oEditors.getById["ir1"].exec("PASTE_HTML", [str]);
+					}
+					function thum_val(str) {	
+					$('#documentfile').val(str);
+					}
+					</script><script language="javascript">
+						var oEditors = [];
+						nhn.husky.EZCreator.createInIFrame({
+							oAppRef: oEditors,
+							elPlaceHolder: "ir1",
+							sSkinURI: "smart_editor/SmartEditor2Skin.html",
+							htParams : {
+							bUseToolbar : true,            // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+							bUseVerticalResizer : true,      // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+							bUseModeChanger : true,         // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+							fOnBeforeUnload : function(){
+								//alert("완료!");
+							}
+						}, //boolean
+						fOnAppLoad : function(){
+							//예제 코드
+							//oEditors.getById["kimsa_content"].exec("PASTE_HTML", ["로딩이 완료된 후에 본문에 삽입되는 text입니다."]);
+						},
+						fCreator: "createSEditor2"
+						});
+					</script>
+</div>
 
-                    </td>                
-                </table>
-    
-        
-        
-	</div>
-    </div>
-    </div>
 	<!-- con_area //E-->
     
     

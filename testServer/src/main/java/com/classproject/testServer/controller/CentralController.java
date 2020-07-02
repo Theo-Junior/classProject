@@ -158,7 +158,7 @@ public class CentralController {
      @RequestMapping(value="/bunsuk_2") 
     public String bunsuk_2() {
         logger.info("Access bunsuk_2 Page");
-        return "bunsuk_1";
+        return "bunsuk_2";
     }
     //스터디 
      @RequestMapping(value="/study_1") 

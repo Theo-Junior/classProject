@@ -2,7 +2,7 @@
 .hide{display:none;}
 body {background:#ffffff;}
 table {width:100%; border-spacing:0; border-collapse:collapse; font-size:13px; font-weight:600;}
-#wrapper {min-width:1000px; background: linear-gradient(to top, #6DD5FA, #FFFFFF);}
+#wrapper {min-width:1000px; background: linear-gradient(to top, #E3E7FF, #FFFFFF);}
 
 /* header */
 #header {width:100%; position:relative; height:138px; z-index:999;}
@@ -12,14 +12,15 @@ table {width:100%; border-spacing:0; border-collapse:collapse; font-size:13px; f
 .top_menu ul {*zoom:1; float:right; padding:42px 10px 0 0;}
 .top_menu ul:after {content:" "; display:block; clear:both;}
 .top_menu ul li {float:left; font-size:10px; font-weight:bold; line-height:12px; margin:0 0 0 13px;}
-.top_menu ul li a {color:#1E82FF; text-decoration:none; padding:0 0 0 10px; background:url('../img/top_dot2.gif') 0 3px no-repeat;}
+.top_menu ul li a {color:#7885CC; text-decoration:none; padding:0 0 0 10px; background:url('../img/top_dot2.gif') 0 3px no-repeat;}
+.top_menu ul li a:hover {color:#7d0101; background:url('../img/top_dot1.gif') 0 3px no-repeat;}
 
 /* gnb */
 #gnb {position:relative; height:48px; width:100%; z-index:999;}
-#gnb ul {position:relative; *zoom:1; width:1000px; margin:0 auto; background:url('../img/gnb_line.gif') 100% 50% no-repeat;}
+#gnb ul {position:relative; *zoom:1; width:1000px; margin:0 auto; background:url('../img/gnb.png') 100% 50% no-repeat;}
 #gnb ul:after {content:" "; display:block; clear:both;}
-#gnb ul li {float:left; height:48px; line-height:48px; width:195px; background:url('../img/gnb_line.gif') 0 50% no-repeat; text-align:center; font-size:16px; font-weight:600;}
-#gnb ul li a {display:block; color:#111111;}
+#gnb ul li {float:left; height:48px; line-height:48px; width:195px; background:url('../img/gnb.png') 0 50% no-repeat; text-align:center; font-size:16px; font-weight:600;}
+#gnb ul li a {display:block; color:#fcfffb;}
 #gnb div.submenu {display:none; position:absolute; height:224px; top:49px; z-index:999; float:none;}
 #gnb div.submenu ul {margin:0; width:auto; padding:21px 0 0; background:none;}
 #gnb div.submenu ul li {height:auto; float:none; background:none; font-size:13px; font-weight:normal; line-height:26px;}
@@ -34,13 +35,14 @@ table {width:100%; border-spacing:0; border-collapse:collapse; font-size:13px; f
 .submenu_bg {display:none; position:relative; margin:0 auto; width:1000px; height:150px; background:url('../img/submenu_bg.png') 0 0 repeat-x; z-index:-999;}
 
 /* main*/
-#main_container {position:relative; width:1000px; margin:0 auto; height:240px; overflow:hidden;}
+#main_container {position:relative; width:1000px; margin:0 auto; height:225px; overflow:hidden;}
 #mainvisual {position:relative; width:100%; overflow:hidden; height:240px;}
+input[value="로그아웃"] {border: 0; background-color: #97a7ff;color: white;width: 70px;height: 20px;padding-bottom: 2px;text-align: center;text-decoration-color: white;border-radius: 5px;	margin-left: 75%;}
 
 /* main_contents */
-#contents {width:1002px; margin:15px auto 16px; height:250px;}
+#contents {width:1002px; margin:15px auto 16px; height:240px;}
 #contents h2 {margin:0 0 24px 0; font-size:20px; font-weight:550; color:#252525;}
-#contents h2 span {color:#004e92; padding:0 0 0 21px;}
+#contents h2 span {color:#5A6499; padding:0 0 0 21px;}
 
 .section2 {*zoom:1; width:926px; margin:0 auto; padding:40px 0 0;}
 .section2:after {content:" "; display:block; clear:both;}
@@ -62,8 +64,6 @@ table {width:100%; border-spacing:0; border-collapse:collapse; font-size:13px; f
 /* subvisual*/
 #subvisual {width:100%; min-width:1000px; overflow:hidden; position:relative; height:225px;text-align:center; margin : 0 0 20px 0;}
 #subvisual img {position:relative; *zoom:1; width:1000px; height : 225px; background:url(../img/submain.jpg)}
-#sub {width:100%; min-width:1000px; overflow:hidden; position:relative; height:240px;text-align:center; margin : 0 0 20px 0;}
-#sub img {position:relative; *zoom:1; width:1000px; height : auto; background:url(../img/sub.jpg)}
 
 /* sub */ 
 #container_wrap {width:100%; padding:46px 0 0; margin:0 0 0 0;}
@@ -141,3 +141,8 @@ table {width:100%; border-spacing:0; border-collapse:collapse; font-size:13px; f
 #footer_content .address {float:left; width:473px; font-size:11px; color:#9a9a9a; line-height:18px; padding:0 0 14px 0;}
 #footer_content .address address {font-style:normal;}
 .copy {clear:both; width:100%; padding:21px 0 0; font-size:11px; font-weight:bold; color:#9a9a9a; background:url('../img/common/f_line.png') 0 0 repeat-x;}
+
+/* button */
+input[value="글 쓰기"] {border: 0;background-color: #97a7ff;color: white;width: 60px;height: 27px;padding-bottom: 2px;text-align: center;text-decoration-color: white;border-radius: 5px;float: right;}
+input[value="글 목록"] {border: 0;background-color: #97a7ff;color: white;width: 60px;height: 27px;padding-bottom: 2px;text-align: center;text-decoration-color: white;border-radius: 5px;float: right;}
+input[value="작성"] {border: 0;background-color: #97a7ff;color: white;width: 50px;height: 27px;padding-bottom: 2px;text-align: center;text-decoration-color: white;	border-radius: 5px;	float: right;}

@@ -33,7 +33,7 @@
 				<%}else{%>
 					<div class="top_menu">
 						<ul>
-							<li><font size = "2em">"<%=sessionID%>"님 환영합니다</font></li>
+							<li><font size = "2em">"<%=sessionID%>"님 환영합니다</font><input type="button" value="로그아웃" id = "logout" onclick="" style="margin-left: 5px"></li>
 						</ul>
 					</div>
 				<%}%>				
@@ -95,17 +95,17 @@
 		</div>
                 
 		<div id="subvisual">
-	<img src="" alt="" />
-</div>
-		<div id="container_wrap">
-			<!-- container //S-->
-			<div id="container">		
-				
-<div id="asid">
-	<h2 class="hide">부메뉴</h2>
-	<div class="tit_box">
-		<h2>잼이 나는 데이터 분석</h2>
-	</div>
+			<img src="img/subvisual.jpg" alt="" />
+		</div>
+				<div id="container_wrap">
+					<!-- container //S-->
+					<div id="container">		
+						
+		<div id="asid">
+			<h2 class="hide">부메뉴</h2>
+			<div class="tit_box">
+				<h2>잼이 나는 데이터 분석</h2>
+			</div>
 	<ul class="left_lst">
 		<!--style='color:#7d0101; font-weight:600; background:url(/images/menu/menu_on.gif) 0 0 no-repeat;'-->
 		<li><a href="bunsuk_1">데싸 결과물</a></li>
@@ -121,103 +121,9 @@
     
     	<!-- con_area //S-->
 	<div class="con_area">
-				<table width="100%" cellpadding=0 cellspacing=0 >
-				<td valign=top colspan=2>
-				
-                    
-                <p>&nbsp;</p>
-                    
-                            <table id="gallery_list" class="text_left">
-                <thead>
-                    <tr>
-                        <th colspan="5">&nbsp;</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <tr>				
-                    <td width="140" style="padding:5px 0px 5px 0px" class="text_center" valign="bottom">
-                        <a href="__">
-                        <dl id="photo_thumb">
-                            <img src="thumbnail.php?filepath=images/common/no_image_1002.jpg&amp;size=200" width="100" height="100">
-                            <dt>제목</dt>
-                            <dd>2020-06-04</dd>
-                        </dl>
-                        </a>
-                    </td>
-                    <td width="140" style="padding:5px 0px 5px 0px" class="text_center" valign="bottom">
-                        <a href="__">
-                        <dl id="photo_thumb">
-                            <img src="thumbnail.php?filepath=upload/board_photo/1590931227_0.png&amp;size=200" width="100" height="100">
-                            <dt>제목</dt>
-                            <dd>2020-05-31</dd>
-                        </dl>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="5" class="mid_line"></td>
-                </tr>
-                <tr>
-                    <td colspan="5" class="mid_line"></td></tr><tr></tr><tr><td colspan="5" class="mid_line">
-                    
-                    </td>
-                </tr>
-                <tr>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="5"></td>
-                </tr>
-            </tfoot>
-            </table>    
-                    
-                    
-                <table id="default_size" class="text_center">
-                <tbody>
-                <tr>
-                    <td>
-                       <img src="images/common/page_Btn_01.jpg" class="page_first"> <img src="images/common/page_Btn_02.jpg" class="page_prev"> <strong class="sel_page_num">1</strong> <a href="/index.php?pg=2&amp;page=list&amp;hCode=BOARD&amp;bo_idx=1&amp;sfl=&amp;stx=" class="page_num">2</a> <a href="/index.php?pg=3&amp;page=list&amp;hCode=BOARD&amp;bo_idx=1&amp;sfl=&amp;stx=" class="page_num">3</a> <a href="/index.php?pg=4&amp;page=list&amp;hCode=BOARD&amp;bo_idx=1&amp;sfl=&amp;stx=" class="page_num">4</a> <a href="/index.php?pg=5&amp;page=list&amp;hCode=BOARD&amp;bo_idx=1&amp;sfl=&amp;stx=" class="page_num">5</a> <a href="/index.php?pg=6&amp;page=list&amp;hCode=BOARD&amp;bo_idx=1&amp;sfl=&amp;stx=" class="page_num">6</a> <a href="/index.php?pg=7&amp;page=list&amp;hCode=BOARD&amp;bo_idx=1&amp;sfl=&amp;stx=" class="page_num">7</a> <a href="/index.php?pg=8&amp;page=list&amp;hCode=BOARD&amp;bo_idx=1&amp;sfl=&amp;stx=" class="page_num">8</a> <a href="/index.php?pg=2&amp;page=list&amp;hCode=BOARD&amp;bo_idx=1&amp;sfl=&amp;stx="><img src="images/common/page_Btn_03.jpg" class="page_next"></a> <a href="/index.php?pg=8&amp;page=list&amp;hCode=BOARD&amp;bo_idx=1&amp;sfl=&amp;stx="><img src="images/common/page_Btn_04.jpg" class="page_last"></a>				
-                    </td>
-                </tr>
-            </tbody>
-            </table>
-                    
-                    
-                    
-                    
-            <table id="default_size" class="b_search">
-    
-            <form name="fsearch" method="get" action="index.php?hCode=$hCode&amp;bo_idx=$bo_idx"></form>
-            <input type="hidden" name="hCode" value="BOARD">
-            <input type="hidden" name="bo_idx" value="1">
-            <input type="hidden" name="subNum" value="1">
-    
-            <tbody><tr>
-            <td class="text_center">
-                <select name="sfl" class="b_select">
-                    <option value="title">제목</option>
-                    <option value="context">내용</option>
-                    <option value="all">제목 + 내용</option>
-                </select>
-                <input type="text" name="stx" value="" size="30" class="input_m">
-                <input type="button" value="검색" onclick="document.fsearch.submit()" rel="pulse-shrink" class="button pulse-shrink">
-            </td>
-            </tr>
-    
-            
-    
-            </tbody></table>
-                    
-                                        
-                    
-                    
-                </div></div>
-                </td>
-                </table>
+		진행중입니다. 잠시만....
 	</div>
-    </div>
-    </div>
+	</div>
 	<!-- con_area //E-->
     
     

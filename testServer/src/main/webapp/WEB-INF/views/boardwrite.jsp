@@ -17,11 +17,16 @@
 <!-- include summernote-ko-KR -->
 <script src="/resources/js/summernote-ko-KR.js"></script>
 
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-<link rel="stylesheet" type="text/css" href="css/default.css" />
-<script type="text/javascript" src="js/common.js"></script>
-<script type="text/javascript" src="js/gnb.js"></script>
-<title>글쓰기</title>
+<style>
+	.btn{display:inline-block;font-weight:400;color:#212529;text-align:left;vertical-align:middle;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;background-color:transparent;border:1px solid transparent;padding:.375rem .75rem;font-size:1.1rem;line-height:1.5;border-radius:.25rem;transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out}@media (prefers-reduced-motion:reduce){.btn{transition:none}}.btn:hover{color:#212529;text-decoration:none}.btn.focus,.btn:focus{outline:0;box-shadow:0 0 0 .2rem rgba(0,123,255,.25)}.btn.disabled,.btn:disabled{opacity:.65}.btn:not(:disabled):not(.disabled){cursor:pointer}a.btn.disabled,fieldset:disabled a.btn{pointer-events:none}	
+	.btn-outline-dark{color:#000000;background-color:#fff;border-color:#000000}
+	.btn-dark{color:#000000;background-color:#fff;border-color:#000000}.btn-dark:hover{color:#fff;background-color:#617AFF;border-color:#000000}.btn-dark.focus,.btn-dark:focus{color:#fff;background-color:#23272b;border-color:#1d2124;box-shadow:0 0 0 .2rem rgba(82,88,93,.5)}.btn-dark.disabled,.btn-dark:disabled{color:#fff;background-color:#343a40;border-color:#343a40}.btn-dark:not(:disabled):not(.disabled).active,.btn-dark:not(:disabled):not(.disabled):active,.show>.btn-dark.dropdown-toggle{color:#fff;background-color:#1d2124;border-color:#171a1d}.btn-dark:not(:disabled):not(.disabled).active:focus,.btn-dark:not(:disabled):not(.disabled):active:focus,.show>.btn-dark.dropdown-toggle:focus{box-shadow:0 0 0 .2rem rgba(82,88,93,.5)}
+</style>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/default.css" />
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/gnb.js"></script>
+	<title>글쓰기</title>
 
 <script>
 $(document).ready(function() {
@@ -77,7 +82,7 @@ $(document).ready(function() {
 				<%}else{%>
 					<div class="top_menu">
 						<ul>
-							<li><font size = "2em">"<%=sessionID%>"님 환영합니다</font></li>
+							<li><font size = "2em">"<%=sessionID%>"님 환영합니다</font><input type="button" value="로그아웃" id = "logout" onclick="" style="margin-left: 5px"></li>
 						</ul>
 					</div>
 				<%}%>				
@@ -142,18 +147,18 @@ $(document).ready(function() {
         </div>
 
 
-		<h2 style="text-align: center; padding: 46px 0 0; font-size: 22px; font-weight: bold; color: #333;">
+		<h2 style="text-align: center; padding: 46px 0 0; font-size: 22px; font-weight: bold; color: #617AFF;">
 			글 작성
-		</h2><br><br>
-
+		</h2><br>
 		<div style="width: 707px; margin: auto;">
 			<form method="post" action="boardinsert">
-				<input type="hidden" name="board_code" value="${Boardcode.board_code}"/><br>
+				<input type="hidden" class="btn btn-outline-dark" name="board_code" value="${Boardcode.board_code}" style="width:20%;"/>
 				<!-- ${Board.board_code} -->
-				<input type="text" name="write_title" style="width: 40%;" placeholder="제목"/>
+				<input type="text" class="btn btn-outline-dark" name="write_title" style="width: 40%;"  placeholder="제목"/>
 				<br><br> 
 				<textarea id="summernote" name="write_content"></textarea>
-				<input type="submit" style="padding: 1px;" value="작성"/>
+				<br>
+				<input type="submit" class="btn btn-dark" style="float:right;" value="작성"/>
 			</form>
 		</div>
 		<div id="footer">

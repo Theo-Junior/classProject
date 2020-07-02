@@ -28,7 +28,7 @@
 }
 
 h2 {
-	color: #3CA0FF;
+	color: #617AFF;
 	margin-left: 10px;
 	font-size: 22px;
 	font-weight: bold;
@@ -69,7 +69,7 @@ button {
 	height: 130px;
 	width: 50px;
 	border: 0px;
-	background: #1E82FF;
+	background: #617AFF;
 	border-radius: 7px;
 	padding: 10px;
 	color: white;
@@ -81,7 +81,7 @@ button {
 	position: absolute;
 	top: 50px;
 	right: 80px;
-	color: white;
+	color: #BECDFF;
 	font-size: 20px;
 	width: 30px;
 	
@@ -91,18 +91,18 @@ button {
 	position: absolute;
 	top: 108px;
 	right: 80px;
-	color: white;
+	color: #BECDFF;
 	font-size: 20px;
 	width: 30px;
 	
 }
 
 input::-webkit-input-placeholder {
-	color: #0AC9FF;
+	color: #8C8CFF;
 }
 
 input:focus::-webkit-input-placeholder {
-	color: #1E82FF;
+	color: #D3CBF9;
 }
 
 #content{
@@ -152,7 +152,7 @@ input:focus::-webkit-input-placeholder {
 					<%}else{%>
 						<div class="top_menu">
 							<ul>
-								<li><font size = "2em">"<%=sessionID%>"님 환영합니다</font></li>
+								<li><font size = "2em">"<%=sessionID%>"님 환영합니다</font><input type="button" value="로그아웃" id = "logout" onclick="" style="margin-left: 5px"></li>
 							</ul>
 						</div>
 					<%}%>				

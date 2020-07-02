@@ -33,7 +33,7 @@
 				<%}else{%>
 					<div class="top_menu">
 						<ul>
-							<li><font size = "2em">"<%=sessionID%>"님 환영합니다</font></li>
+							<li><font size = "2em">"<%=sessionID%>"님 환영합니다</font><input type="button" value="로그아웃" id = "logout" onclick="" style="margin-left: 5px"></li>
 						</ul>
 					</div>
 				<%}%>				
@@ -113,9 +113,9 @@
 	</ul>
 </div><!-- content //S-->
 <div id="content">
-	<div class="path">Home &nbsp;&gt;&nbsp; 클래스 스터디 &nbsp;&gt;&nbsp; 직원</div>
+	<div class="path">Home &nbsp;&gt;&nbsp; 클래스 스터디 &nbsp;&gt;&nbsp; PYTHON</div>
 	<div class="sub_title">
-		<h2>직원</h2>
+		<h2>PYTHON</h2>
 	</div>
                 
     
@@ -123,15 +123,8 @@
 	<div class="con_area">
 				<table width="100%" cellpadding=0 cellspacing=0 >
 				<td valign=top colspan=2>
-				<div class="title">분석 1<br><div class="txt">분석 1 입니다. 분석 1 입니다.<br>
-                    
-                <p>&nbsp;</p>
-                <p><b>여기에 게시판 삽입</b></p>
- 
-                </div>
-                </div>
-                </td>
-                </table>
+				<div class="title">PYTHON 스터디<br><div class="txt">모집중입니다.<br></td></table></div>
+
 	</div>
     </div>
     </div>
@@ -161,6 +154,6 @@
             });
         </script>
         
-</div>                
+</div>          
 </body>
 </html>

@@ -39,7 +39,7 @@
 				<%}else{%>
 					<div class="top_menu">
 						<ul>
-							<li><font size = "2em">"<%=sessionID%>"님 환영합니다</font></li>
+							<li><font size = "2em">"<%=sessionID%>"님 환영합니다</font><input type="button" value="로그아웃" id = "logout" onclick="" style="margin-left: 5px"></li>
 						</ul>
 					</div>
 				<%}%>				
@@ -123,86 +123,91 @@ jQuery('#gnb').gnb({ d1: 0, d2: 0 });
 
 <style>
     table { width:700px;}
-	td {margin:auto; background-color: #3f48cc; text-align: center;	color: #eeeeee;}
+	td {margin:auto; background-color: #97A7FF; text-align: center;	color: #eeeeee;}
  textarea { width: 100%;}
 </style>
+
 	<div id="content">
 		<div class="con_area">
-			<div id="outter">
+			<id id="outter">
 				<table border="1">
 					<tr>
-						<td style = "width:15%;" ></td>
-						<td style = "width:85%; height:30px; font-size: x-large;">게시판</td>
+						<td style = "width:85%; height:30px; font-size: small;" colspan="2">게시판</td>
 					</tr>
 					<tr>
-						<td style = "width:15%">제목</td>
-						<td colspan="2" style="width: 85%; height:30px; background-color: #eeeeee;">${Boardlist.write_title}</td>
-						
+						<td style = "width:7%">제목</td>
+						<td colspan="2" style="width: 85%; opacity:1; height:30px; background-color: #f7f8ff; color: #000000;">${Boardlist.write_title}</td>	
 					</tr>
 					<tr>
-						<td style = "width: 15%;">작성자</td>
-						<td colspan="2" style="width: 85%; height:30px; background-color: #eeeeee;">${Boardlist.member_code}</td>
-						
+						<td style = "width:7%;">작성자</td>
+						<td colspan="2" style="width: 85%; opacity:1; height:30px; background-color: #f7f8ff; color: #000000;">${Boardlist.member_code}</td>	
 					</tr>
 					<tr>
-						<td style="width:15%">작<br>성<br>내<br>용</td>
-						<td colspan="2" style="width: 85%; height:500px; background-color: #eeeeee;"><div style="display: inline-block">${Boardlist.write_content}</div></td>
+						<td colspan="3" style="height:30px; background-color: #f7f8ff; border-left: hidden; border-right: hidden;"></td>
+					</tr>
+					<tr>
+						<td colspan="3" style="width: 85%; opacity:1; height:500px; background-color: #f7f8ff; color: #000000;"><div style="display: inline-block">${Boardlist.write_content}</div></td>
 					</tr>
 				</table>
-					<input type="button" value="글 목록" style="float: left;" onclick="location.href='manage_1';">
-					<%=sessionCode%><%=sessionMC%>
-				<%if(sessionMC.equals(sessionCode)){%>
-
-					<input type="button" value="수정하기" style="float: left;" onclick="location.href='board_update?write_code=${Boardlist.write_code}';">
-				<%}%>	
-			</div>
+				<p>&nbsp;</p>
+					<input type="button" value="글 목록" style="float: right;" onclick="location.href='manage_1';">
+					<%=sessionCode%><%=sessionMC%><%if(sessionMC.equals(sessionCode)){%>
+					<input type="button" value="수정하기" style="float: right;" onclick="location.href='board_update?write_code=${Boardlist.write_code}';">
+					<%}%>	
+			</div> <!--outer-->
+			
+			
 			<!--댓글-->
 			<br><br>
-	<h3>댓글</h3>
-	<div style="width: 60%; margin: auto;">
-		<form method="post" action="comment_insert">
-			<input type="hidden" name="write_code" value="${Boardlist.write_code}"/><br>
-			<input type="text" name="comment_write" style="height: 40px; display: inline-block" placeholder="내용"/>
-
-			<input type="submit" value="작성"/>
-		</form>
-	</div>
-	<br><br>
-	<div class="container">
-		<div class="row">
-			<table class="table table-striped"
-
-				style="text-align: center; border: 1px solid #dddddd">
-
+			
+			<table border="1" frame=void>
 				<thead>
-
-					<tr>
-
-						<th style="background-color: #eeeeee; text-align: center;">번호</th>
-						<th style="background-color: #eeeeee; text-align: center;">작성자</th>
-						<th style="background-color: #eeeeee; text-align: center;">내용</th>
-						<th style="background-color: #eeeeee; text-align: center;">날자</th>
-					</tr>
-
+				  <tr>
+					<form method="post" action="comment_insert">
+					<th style = "font-size : 1.25em;">댓  글<input type="hidden" name="write_code" value="${Boardlist.write_code}" /></th>
+					<th><input type="text" name="comment_write" style="width: 100%; height: 20px; display: inline-block" placeholder="&nbsp;내용을 입력하세요"/></th>
+					<th><input type="submit" value="작성" style="width: 60%"></th>
+					</form>
+				  </tr>
 				</thead>
+				</table>		
 
-
-				<tbody>
-					<c:forEach items="${Commentlist}" var="Commentlist">
-						<tr>	
-								<td>${Commentlist.comment_code}</td>
-								<!--detail?seq : 서택한 item.wite_code를 넘겨줘서 controller에서 받음-->
-								<td>${Commentlist.member_code}</td>
-								<td>${Commentlist.comment_write}</td>
-								<td>${Commentlist.comment_date}</td>
+			
+			<br><br>
+			<!--202007029JH//S-->
+			<div class="container">
+				<div class="row">
+					<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd;margin-bottom: 40px;">
+						<thead>
+							<tr>
+								<th width=10% height=25px style="background-color: #97A7FF; color: #e8ecff; text-align: center;">번호</th>
+								<th width=10% height=25px style="background-color: #97A7FF; color: #e8ecff; text-align: center;">작성자</th>
+								<th width=60% height=25px style="background-color: #97A7FF; color: #e8ecff; text-align: center;">내용</th>
+								<th width=20% height=25px style="background-color: #97A7FF; color: #e8ecff; text-align: center;">날짜</th>
 							</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-		</div>
-	</div>
-		</div>
-	</div>
+							<tr>
+								<td colspan="4" height=2px style="background-color: #e8ecff;"></td>
+							</tr>
+						</thead>
+						<tbody>
+						<c:forEach items="${Commentlist}" var="Commentlist">
+							<tr>	
+								<td height=25px style="background-color:#e8ecff; color:#4b5380">${Commentlist.comment_code}</td>
+								<!--detail?seq : 서택한 item.wite_code를 넘겨줘서 controller에서 받음-->
+								<td height=25px style="background-color:#e8ecff; color:#4b5380">${Commentlist.member_code}</td>
+								<td height=25px style="background-color:#e8ecff; color:#4b5380; text-align: left;">${Commentlist.comment_write}</td>
+								<td height=25px style="background-color:#e8ecff; color:#4b5380">${Commentlist.comment_date}</td>
+							</tr>
+							<tr>
+								<td colspan="4" height=1px style="background-color: #4b5380;"></td>
+							</tr>
+						</c:forEach>
+						</tbody>
+					</table>
+				</div><!--row-->
+			</div><!--container-->
+		</div><!--conarea-->
+	</div><!--content-->
 	
 
 <div id="footer">

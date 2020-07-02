@@ -33,7 +33,9 @@
 				<%}else{%>
 					<div class="top_menu">
 						<ul>
-							<li><font size = "2em">"<%=sessionID%>"님 환영합니다</font></li>
+							<li><font size = "2em">"<%=sessionID%>"님 환영합니다</font>
+								<input type="button" value="로그아웃" id = "logout" onclick="" style="margin-left: 5px">
+							</li>
 						</ul>
 					</div>
 				<%}%>				
@@ -97,7 +99,7 @@
 
 <div id="main_container">
 <!-- main_container //S-->
-<img src="img/main.jpg" width="1002" height="240" alt="" />
+<img src="img/main.jpg" width="1000" height="225" alt="" />
 
 </div>
 
@@ -145,7 +147,7 @@
 		<h2>최신 데이터 분석 <span>DATA</span></h2>
 		<ul>
 			<li>
-				<a href="bunsuk_1"><img src="img/da.jpg" alt="데이터분석" style ="width:450px; height:305px;"/></a></li>
+				<a href="bunsuk_1"><img src="img/da.png" alt="데이터분석" style ="width:450px; height:305px;"/></a></li>
 		</ul>
 			</div>
 		</div>

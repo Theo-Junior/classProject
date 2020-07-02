@@ -33,7 +33,7 @@
 				<%}else{%>
 					<div class="top_menu">
 						<ul>
-							<li><font size = "2em">"<%=sessionID%>"님 환영합니다</font></li>
+							<li><font size = "2em">"<%=sessionID%>"님 환영합니다</font><input type="button" value="로그아웃" id = "logout" onclick="" style="margin-left: 5px"></li>
 						</ul>
 					</div>
 				<%}%>				
@@ -94,8 +94,8 @@
 			</script> -->
 		</div>
                 
-		<div id="sub">
-			<img src="img/sub.gif" alt="" />
+		<div id="subvisual">
+			<img src="img/subvisual.jpg" alt="" />
 		</div>
 		<div id="container_wrap">
 			<!-- container //S-->
@@ -128,7 +128,7 @@
 	</div>
 		</div>
 </div>
-	 con_area //E-->
+	 <!--con_area //E-->
     
     
     <div id="footer">

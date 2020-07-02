@@ -74,7 +74,7 @@
 
 
 h2 {
-	color: #3CA0FF;
+	color: #617AFF;
 	margin-left: 0px;
 	font-size: 20px;
 	font-weight: bold;
@@ -120,8 +120,8 @@ input[type="password"] {
 
 input[value="중복확인"] {
 	border: 0;
-	background-color: rgba(23,171,238,0.3);
-	color: white;
+	background-color: rgba(221,203,249,0.3);
+	color: gray;
 	width: 60px;
     height: 25px;
     padding-bottom: 2px;
@@ -131,7 +131,7 @@ input[value="중복확인"] {
 
 input[value="가입"] {
 	border: 0;
-	background-color: #00AFFF;
+	background-color: #617AFF;
 	color: white;
 	width: 40px;
     height: 27px;
@@ -144,7 +144,7 @@ input[value="가입"] {
 
 input[value="취소"] {
 	border: 0;
-	background-color: #5ACCFF;
+	background-color: #99A9FE;
 	color: white;
 	width: 40px;
     height: 27px;
@@ -175,12 +175,21 @@ input[value="취소"] {
 		<div id="header">
 			<div id="header_content">
 				<h1 class="logo"><a href="main"><img src="img/logo.png", width="150" alt="빅데이터반" /></a></h1>
-				<div class="top_menu">
-					<ul>
-                        <li><a href="loginform">LOGIN</a></li>
-                        <li><a href="join">JOIN</a></li>
-                    </ul>
-				</div>
+				<%String sessionID=(String)session.getAttribute("ID"); if(sessionID==null){%>
+					<div class="top_menu">
+						<ul>
+							<li><a href="login">LOGIN</a></li>
+							<li><a href="registerform">JOIN</a></li>
+						</ul>
+					</div>
+				<%}else{%>
+					<div class="top_menu">
+						<ul>
+							<li><font size = "2em">"<%=sessionID%>"님 환영합니다</font><input type="button" value="로그아웃" id = "logout" onclick="" style="margin-left: 5px"></li>
+						</ul>
+					</div>
+				<%}%>				
+			</div>
 			</div>
 			<!-- gnb//S-->
 			<div id="gnb">
