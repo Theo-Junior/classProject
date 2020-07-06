@@ -317,6 +317,11 @@ public class CentralController {
         logger.info("Access login Page");
         return "loginform";
     }
+    @RequestMapping(value ="/logout")
+    public String logout(HttpSession session)throws Exception{
+        session.invalidate();
+        return "redirect:/main";
+    }
 
 
     // 회원가입 페이지(Registerform.jsp에서 가입을 누르면 join.jsp로 넘어갑니다. 그때 join.jsp를 받아서 실행하는 메소드입니다.)
